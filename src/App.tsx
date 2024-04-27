@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Dropdown from "../src/components/dropdown/Dropdown";
+import Dropdown2 from "../src/components/dropdown2/Dropdown2";
+import { useState } from "react";
+import GlobalStyle from "./globalStyles";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
+  const handleMenuOne = () => {
+    // do something
+    setOpen(false);
+  };
+
+  const handleMenuTwo = () => {
+    // do something
+    setOpen(false);
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <GlobalStyle />
+
+      <Dropdown
+        open={open}
+        trigger={
+          <button onClick={handleOpen} className="btn">
+            Dropdown
+          </button>
+        }
+        menu={[
+          <button onClick={handleMenuOne}>Menu 1</button>,
+          <button onClick={handleMenuTwo}>Menu 2</button>,
+        ]}
+      />
+      {open ? <div>Is Open</div> : <div>Is Closed</div>}
+
+      <Dropdown2></Dropdown2>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
