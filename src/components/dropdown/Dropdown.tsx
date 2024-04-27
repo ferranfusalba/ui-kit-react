@@ -1,30 +1,39 @@
-import * as React from "react";
 import { StyledDropdown } from "./Dropdown.styles";
+import useOpenDropdown from "../../hooks/use-open-dropdown";
+import OutsideClickWrapper from "../../hooks/use-outside-click-wrapper";
 
 const Dropdown = ({
-  open,
-  trigger,
-  menu,
-  direction,
+  triggerButton,
+  direction = "bottom",
+  menuItems = [{ label: "", value: "" }],
 }: {
-  open: boolean;
-  trigger: React.ReactNode;
-  menu: Array<React.ReactNode>;
+  triggerButton: React.ReactNode;
   direction?: string;
+  menuItems?: Array<{ label: string; value: string }>;
 }) => {
+  const { open, setOpen, handleOpen } = useOpenDropdown();
+
+  const handleClickOutside = () => {
+    setOpen(false);
+  };
+
   return (
-    <StyledDropdown className="dropdown-wrapper">
-      {trigger}
-      {open ? (
-        <div className={"dropdown-menu" + " " + direction}>
-          {menu.map((menuItem: React.ReactNode, index: number) => (
-            <div key={index} className="menu-item">
-              {menuItem}
-            </div>
-          ))}
-        </div>
-      ) : null}
-    </StyledDropdown>
+    <OutsideClickWrapper callback={handleClickOutside}>
+      <StyledDropdown>
+        <button onClick={handleOpen} className="btn">
+          {triggerButton}
+        </button>
+        {open ? (
+          <div className={"dropdown-menu" + " " + direction}>
+            {menuItems.map((menu, index) => (
+              <button onClick={handleOpen} key={index} className="menu-item">
+                {menu.label}
+              </button>
+            ))}
+          </div>
+        ) : null}
+      </StyledDropdown>
+    </OutsideClickWrapper>
   );
 };
 

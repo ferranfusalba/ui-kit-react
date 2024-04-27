@@ -32,6 +32,12 @@ body {
   min-height: 100vh;
 }
 
+.container {
+  display: flex;
+  justify-content: space-around;
+  width: 1000px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

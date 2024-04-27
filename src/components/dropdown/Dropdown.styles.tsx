@@ -1,36 +1,30 @@
 import styled from "styled-components";
 
 export const StyledDropdown = styled.div`
-  .dropdown-wrapper {
-    position: relative;
-  }
+  position: relative;
 
   .dropdown-menu {
     position: absolute;
     border: 1px solid grey;
     width: 150px;
-  }
 
-  // Dropdown (default)
-  .bottom {
-    top: 100%;
-  }
+    &.bottom {
+      top: 100%;
+    }
 
-  // Dropup
-  .top {
-    bottom: 100%;
-  }
+    &.top {
+      bottom: 100%;
+    }
 
-  // Dropleft
-  .left {
-    right: 100%;
-    top: 0%;
-  }
+    &.left {
+      right: 100%;
+      top: 0%;
+    }
 
-  // Dropright
-  .right {
-    left: 100%;
-    top: 0;
+    &.right {
+      left: 100%;
+      top: 0;
+    }
   }
 
   .dropdown-menu > li {
