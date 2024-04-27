@@ -4,16 +4,21 @@ import ArrowLeft from "../src/assets/icons/arrow--left.svg";
 import ArrowUp from "../src/assets/icons/arrow--up.svg";
 import ArrowDown from "../src/assets/icons/arrow--down.svg";
 import ArrowRight from "../src/assets/icons/arrow--right.svg";
+import { useCounterStore } from "./store/store";
 
 function App() {
+  const setSelectedValue = useCounterStore((state) => state.setSelectedValue);
+
   const menuItems = [
     {
       value: "securityOptions",
       label: "Security Options",
+      setFunction: () => setSelectedValue("securityOptions"),
     },
     {
       value: "googleAccounts",
       label: "Google Accounts",
+      setFunction: () => setSelectedValue("googleAccounts"),
     },
   ];
 
@@ -66,6 +71,7 @@ function App() {
           menuItems={menuItems}
         />
       </div>
+      <hr />
     </>
   );
 }

@@ -6,7 +6,9 @@ export const StyledDropdown = styled.div`
   .dropdown-menu {
     position: absolute;
     border: 1px solid grey;
+    background-color: lightgrey;
     width: 150px;
+    z-index: 1;
 
     &.bottom {
       top: 100%;
@@ -25,27 +27,5 @@ export const StyledDropdown = styled.div`
       left: 100%;
       top: 0;
     }
-  }
-
-  .dropdown-menu > li {
-    margin: 0;
-    background-color: white;
-  }
-
-  .dropdown-menu > li:hover {
-    background-color: lightgray;
-  }
-
-  .dropdown-menu > li > button {
-    width: 100%;
-    height: 100%;
-    text-align: left;
-    background: none;
-    color: black;
-    border: none;
-    padding: 5px;
-    margin: 0;
-    font: inherit;
-    cursor: pointer;
   }
 `;

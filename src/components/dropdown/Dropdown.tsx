@@ -1,20 +1,36 @@
 import { StyledDropdown } from "./Dropdown.styles";
 import useOpenDropdown from "../../hooks/use-open-dropdown";
 import OutsideClickWrapper from "../../hooks/use-outside-click-wrapper";
+import { useCounterStore } from "../../store/store";
+
+interface MenuItem {
+  label: string;
+  value: string;
+  setFunction: (value: string) => void;
+}
 
 const Dropdown = ({
   triggerButton,
   direction = "bottom",
-  menuItems = [{ label: "", value: "" }],
+  menuItems,
 }: {
   triggerButton: React.ReactNode;
   direction?: string;
-  menuItems?: Array<{ label: string; value: string }>;
+  menuItems: Array<MenuItem>;
 }) => {
+  const setSelectedValue = useCounterStore((state) => state.setSelectedValue);
+  const store = useCounterStore((state) => state);
+  console.log("zustand store", store);
+
   const { open, setOpen, handleOpen } = useOpenDropdown();
 
   const handleClickOutside = () => {
     setOpen(false);
+  };
+
+  const handleOption = (item: MenuItem) => {
+    item.setFunction();
+    handleOpen();
   };
 
   return (
@@ -26,7 +42,11 @@ const Dropdown = ({
         {open ? (
           <div className={"dropdown-menu" + " " + direction}>
             {menuItems.map((menu, index) => (
-              <button onClick={handleOpen} key={index} className="menu-item">
+              <button
+                onClick={() => handleOption(menu)}
+                key={index}
+                className="menu-item"
+              >
                 {menu.label}
               </button>
             ))}
