@@ -6,7 +6,7 @@ import { useCounterStore } from "../../store/store";
 interface MenuItem {
   label: string;
   value: string;
-  setFunction: (value: string) => void;
+  setFunction: (value?: string) => void;
 }
 
 const Dropdown = ({
@@ -18,7 +18,7 @@ const Dropdown = ({
   direction?: string;
   menuItems: Array<MenuItem>;
 }) => {
-  const setSelectedValue = useCounterStore((state) => state.setSelectedValue);
+  // const setSelectedValue = useCounterStore((state) => state.setSelectedValue);
   const store = useCounterStore((state) => state);
   console.log("zustand store", store);
 

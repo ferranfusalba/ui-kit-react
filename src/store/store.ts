@@ -5,6 +5,7 @@ interface CounterStore {
   value: string;
   increment: () => void;
   decrement: () => void;
+  setSelectedValue: (value: string) => void;
 }
 
 export const useCounterStore = create<CounterStore>((set) => ({
