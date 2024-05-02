@@ -27,7 +27,7 @@ function DropdownPage() {
   ];
 
   return (
-    <div className="p-2">
+    <div>
       <>
         <div className="container">
           <Dropdown

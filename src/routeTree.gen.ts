@@ -17,6 +17,7 @@ import { Route as rootRoute } from './routes/__root'
 // Create Virtual Routes
 
 const DropdownLazyImport = createFileRoute('/dropdown')()
+const ButtonLazyImport = createFileRoute('/button')()
 const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
 
@@ -26,6 +27,11 @@ const DropdownLazyRoute = DropdownLazyImport.update({
   path: '/dropdown',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/dropdown.lazy').then((d) => d.Route))
+
+const ButtonLazyRoute = ButtonLazyImport.update({
+  path: '/button',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/button.lazy').then((d) => d.Route))
 
 const AboutLazyRoute = AboutLazyImport.update({
   path: '/about',
@@ -49,6 +55,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutLazyImport
       parentRoute: typeof rootRoute
     }
+    '/button': {
+      preLoaderRoute: typeof ButtonLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/dropdown': {
       preLoaderRoute: typeof DropdownLazyImport
       parentRoute: typeof rootRoute
@@ -61,6 +71,7 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
   AboutLazyRoute,
+  ButtonLazyRoute,
   DropdownLazyRoute,
 ])
 
