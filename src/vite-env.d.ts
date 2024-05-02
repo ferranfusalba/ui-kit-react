@@ -2,8 +2,8 @@
 
 declare namespace JSX {
   interface IntrinsicElements {
-    "md-checkbox": any;
-    "md-outlined-button": any;
-    "md-filled-button": any;
+    "md-checkbox": any; // TODO: Replace any
+    "md-outlined-button": any; // TODO: Replace any
+    "md-filled-button": any; // TODO: Replace any
   }
 }

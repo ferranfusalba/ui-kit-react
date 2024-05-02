@@ -5,7 +5,8 @@ interface Props {
   children: React.ReactNode;
 }
 
-function useOutsideWrapper(ref, callback: Function) {
+// TODO: Replace any
+function useOutsideWrapper(ref: any, callback: Function) {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (ref.current && !ref.current.contains(event.target)) {
