@@ -2,7 +2,7 @@ import "@material/web/button/filled-button.js";
 import "@material/web/button/outlined-button.js";
 import "@material/web/checkbox/checkbox.js";
 
-const MaterialGetStarted = () => {
+const MaterialWebGetStarted = () => {
   return (
     <>
       <label>
@@ -15,4 +15,4 @@ const MaterialGetStarted = () => {
   );
 };
 
-export default MaterialGetStarted;
+export default MaterialWebGetStarted;

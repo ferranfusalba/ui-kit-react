@@ -1,6 +1,5 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import React from "react";
-// import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import Navbar from "../components/navbar/Navbar";
 
 const TanStackRouterDevtools =

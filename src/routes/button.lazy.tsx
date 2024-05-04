@@ -1,5 +1,5 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
-import MaterialGetStarted from "../components/material-get-started/MaterialGetStarted";
+import MaterialWebGetStarted from "../components/material-web-get-started/MaterialWebGetStarted";
 
 export const Route = createLazyFileRoute("/button")({
   component: Button,
@@ -8,7 +8,7 @@ export const Route = createLazyFileRoute("/button")({
 function Button() {
   return (
     <div>
-      <MaterialGetStarted></MaterialGetStarted>
+      <MaterialWebGetStarted></MaterialWebGetStarted>
     </div>
   );
 }
