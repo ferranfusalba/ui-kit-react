@@ -26,6 +26,10 @@ body {
   display: flex;
   justify-content: space-around;
   width: 1000px;
+
+  & > *:nth-child(1) {
+    width: 120px;
+  }
 }
 
 .main-app {

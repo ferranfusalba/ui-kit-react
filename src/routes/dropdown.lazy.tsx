@@ -31,47 +31,217 @@ function DropdownPage() {
     <LayoutCenter>
       <>
         <div className="container">
+          <div>Default</div>
           <Dropdown
             triggerButton="Dropleft"
-            direction="left"
+            direction="direction-left"
             menuItems={menuItems}
           />
           <Dropdown
             triggerButton="Dropup"
-            direction="top"
+            direction="direction-top"
             menuItems={menuItems}
           />
           <Dropdown
             triggerButton="Dropdown"
-            direction="bottom"
+            direction="direction-bottom"
             menuItems={menuItems}
           />
           <Dropdown
             triggerButton="Dropright"
-            direction="right"
+            direction="direction-right"
             menuItems={menuItems}
           />
         </div>
         <br />
         <div className="container">
+          <div>from Bottom</div>
+          <Dropdown
+            triggerButton="Dropleft"
+            direction="direction-left"
+            alignment="alignment-bottom"
+            menuItems={menuItems}
+          />
+          <Dropdown
+            triggerButton="Dropup"
+            direction="direction-top"
+            menuItems={menuItems}
+            disabled
+          />
+          <Dropdown
+            triggerButton="Dropdown"
+            direction="direction-bottom"
+            menuItems={menuItems}
+            disabled
+          />
+          <Dropdown
+            triggerButton="Dropright"
+            direction="direction-right"
+            alignment="alignment-bottom"
+            menuItems={menuItems}
+          />
+        </div>
+        <br />
+        <div className="container">
+          <div>from Center-Y</div>
+          <Dropdown
+            triggerButton="Dropleft"
+            direction="direction-left"
+            alignment="alignment-center-y"
+            menuItems={menuItems}
+          />
+          <Dropdown
+            triggerButton="Dropup"
+            direction="direction-top"
+            menuItems={menuItems}
+            disabled
+          />
+          <Dropdown
+            triggerButton="Dropdown"
+            direction="direction-bottom"
+            menuItems={menuItems}
+            disabled
+          />
+          <Dropdown
+            triggerButton="Dropright"
+            direction="direction-right"
+            alignment="alignment-center-y"
+            menuItems={menuItems}
+          />
+        </div>
+        <br />
+        <div className="container">
+          <div>frop Top (= d.)</div>
+          <Dropdown
+            triggerButton="Dropleft"
+            direction="direction-left"
+            alignment="alignment-top"
+            menuItems={menuItems}
+          />
+          <Dropdown
+            triggerButton="Dropup"
+            direction="direction-top"
+            menuItems={menuItems}
+            disabled
+          />
+          <Dropdown
+            triggerButton="Dropdown"
+            direction="direction-bottom"
+            menuItems={menuItems}
+            disabled
+          />
+          <Dropdown
+            triggerButton="Dropright"
+            direction="direction-right"
+            alignment="alignment-top"
+            menuItems={menuItems}
+          />
+        </div>
+        <br />
+        <div className="container">
+          <div>from Left (= d.)</div>
+          <Dropdown
+            triggerButton="Dropleft"
+            direction="direction-left"
+            menuItems={menuItems}
+            disabled
+          />
+          <Dropdown
+            triggerButton="Dropup"
+            direction="direction-top"
+            alignment="alignment-left"
+            menuItems={menuItems}
+          />
+          <Dropdown
+            triggerButton="Dropdown"
+            direction="direction-bottom"
+            alignment="alignment-left"
+            menuItems={menuItems}
+          />
+          <Dropdown
+            triggerButton="Dropright"
+            direction="direction-right"
+            menuItems={menuItems}
+            disabled
+          />
+        </div>
+        <br />
+        <div className="container">
+          <div>from Center-X</div>
+          <Dropdown
+            triggerButton="Dropleft"
+            direction="direction-left"
+            menuItems={menuItems}
+            disabled
+          />
+          <Dropdown
+            triggerButton="Dropup"
+            direction="direction-top"
+            alignment="alignment-center-x"
+            menuItems={menuItems}
+          />
+          <Dropdown
+            triggerButton="Dropdown"
+            direction="direction-bottom"
+            alignment="alignment-center-x"
+            menuItems={menuItems}
+          />
+          <Dropdown
+            triggerButton="Dropright"
+            direction="direction-right"
+            menuItems={menuItems}
+            disabled
+          />
+        </div>
+        <br />
+        <div className="container">
+          <div>from Right</div>
+          <Dropdown
+            triggerButton="Dropleft"
+            direction="direction-left"
+            menuItems={menuItems}
+            disabled
+          />
+          <Dropdown
+            triggerButton="Dropup"
+            direction="direction-top"
+            alignment="alignment-right"
+            menuItems={menuItems}
+          />
+          <Dropdown
+            triggerButton="Dropdown"
+            direction="direction-bottom"
+            alignment="alignment-right"
+            menuItems={menuItems}
+          />
+          <Dropdown
+            triggerButton="Dropright"
+            direction="direction-right"
+            menuItems={menuItems}
+            disabled
+          />
+        </div>
+        <br />
+        <div className="container">
+          <div>Default</div>
           <Dropdown
             triggerButton={<img src={ArrowLeft} alt="" />}
-            direction="left"
+            direction="direction-left"
             menuItems={menuItems}
           />
           <Dropdown
             triggerButton={<img src={ArrowUp} alt="" />}
-            direction="top"
+            direction="direction-top"
             menuItems={menuItems}
           />
           <Dropdown
             triggerButton={<img src={ArrowDown} alt="" />}
-            direction="bottom"
+            direction="direction-bottom"
             menuItems={menuItems}
           />
           <Dropdown
             triggerButton={<img src={ArrowRight} alt="" />}
-            direction="right"
+            direction="direction-right"
             menuItems={menuItems}
           />
         </div>

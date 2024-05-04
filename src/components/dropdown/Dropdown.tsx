@@ -12,11 +12,15 @@ interface MenuItem {
 const Dropdown = ({
   triggerButton,
   direction = "bottom",
+  alignment,
   menuItems,
+  disabled = false,
 }: {
   triggerButton: React.ReactNode;
   direction?: string;
+  alignment?: string;
   menuItems: Array<MenuItem>;
+  disabled?: boolean;
 }) => {
   // const setSelectedValue = useCounterStore((state) => state.setSelectedValue);
   const store = useCounterStore((state) => state);
@@ -36,11 +40,11 @@ const Dropdown = ({
   return (
     <OutsideClickWrapper callback={handleClickOutside}>
       <StyledDropdown>
-        <button onClick={handleOpen} className="btn">
+        <button onClick={handleOpen} className="btn" disabled={disabled}>
           {triggerButton}
         </button>
         {open ? (
-          <div className={"dropdown-menu" + " " + direction}>
+          <div className={"dropdown-menu" + " " + direction + " " + alignment}>
             {menuItems.map((menu, index) => (
               <button
                 onClick={() => handleOption(menu)}
