@@ -3,6 +3,48 @@ import styled from "styled-components";
 export const StyledDropdown = styled.div`
   position: relative;
 
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    img {
+      height: 20px;
+      transition: 0.3s ease-in-out;
+
+      &.direction-right {
+        transform: rotate(-90deg);
+        &.open {
+          transform: rotate(90deg);
+        }
+      }
+
+      &.direction-left {
+        transform: rotate(90deg);
+        &.open {
+          transform: rotate(-90deg);
+        }
+      }
+
+      &.direction-top {
+        transform: rotate(180deg);
+        &.open {
+          transform: none;
+        }
+      }
+
+      // If direction-bottom is given
+      &.direction-bottom,
+      // If direction-bottom is not given (default behavior)
+      &:not(.direction-top, .direction-left, .direction-right) {
+        &.open {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+
   .dropdown-menu {
     position: absolute;
     border: 1px solid grey;

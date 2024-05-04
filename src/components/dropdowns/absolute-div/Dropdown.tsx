@@ -1,7 +1,9 @@
 import { StyledDropdown } from "./Dropdown.styles";
-import useOpenDropdown from "../../hooks/use-open-dropdown";
-import OutsideClickWrapper from "../../hooks/use-outside-click-wrapper";
-import { useCounterStore } from "../../store/store";
+import useOpenDropdown from "../../../hooks/use-open-dropdown";
+import OutsideClickWrapper from "../../../hooks/use-outside-click-wrapper";
+import { useCounterStore } from "../../../store/store";
+import ChevronDown from "../../../assets/icons/chevron--down.svg";
+import classNames from "classnames";
 
 interface MenuItem {
   label: string;
@@ -40,11 +42,15 @@ const Dropdown = ({
   return (
     <OutsideClickWrapper callback={handleClickOutside}>
       <StyledDropdown>
-        <button onClick={handleOpen} className="btn" disabled={disabled}>
+        <button onClick={handleOpen} disabled={disabled}>
           {triggerButton}
+          <img
+            src={ChevronDown}
+            className={classNames("button", direction, { open: open })}
+          ></img>
         </button>
         {open ? (
-          <div className={"dropdown-menu" + " " + direction + " " + alignment}>
+          <div className={classNames("dropdown-menu", direction, alignment)}>
             {menuItems.map((menu, index) => (
               <button
                 onClick={() => handleOption(menu)}

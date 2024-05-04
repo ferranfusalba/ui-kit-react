@@ -4,7 +4,7 @@ import ArrowUp from "../../src/assets/icons/arrow--up.svg";
 import ArrowDown from "../../src/assets/icons/arrow--down.svg";
 import ArrowRight from "../../src/assets/icons/arrow--right.svg";
 import { useCounterStore } from "../store/store";
-import Dropdown from "../components/dropdown/Dropdown";
+import Dropdown from "../components/dropdowns/absolute-div/Dropdown";
 import LayoutCenter from "../styles/layouts/LayoutCenter";
 
 export const Route = createLazyFileRoute("/dropdown")({
