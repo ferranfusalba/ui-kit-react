@@ -8,6 +8,12 @@ export const StyledDropdown = styled.div`
     align-items: center;
     justify-content: center;
     gap: 8px;
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+    &:disabled {
+      cursor: not-allowed;
+    }
 
     img {
       height: 20px;
@@ -55,7 +61,7 @@ export const StyledDropdown = styled.div`
     flex-direction: column;
 
     .menu-item {
-      width: max-content;
+      width: 100%;
     }
 
     &.direction-bottom {
@@ -69,13 +75,19 @@ export const StyledDropdown = styled.div`
     &.direction-left {
       right: 100%;
       top: 0%;
-      align-items: end;
+
+      .menu-item {
+        justify-content: end;
+      }
     }
 
     &.direction-right {
       left: 100%;
       top: 0;
-      // align-items: start;
+
+      .menu-item {
+        justify-content: start;
+      }
     }
 
     &.alignment-bottom {
@@ -98,18 +110,23 @@ export const StyledDropdown = styled.div`
 
     &.alignment-left {
       left: 0;
-      // align-items: start;
+
+      .menu-item {
+        justify-content: start;
+      }
     }
 
     &.alignment-center-x {
       left: 50%;
       transform: translate(-50%, 0%);
-      align-items: center;
     }
 
     &.alignment-right {
       right: 0;
-      align-items: end;
+
+      .menu-item {
+        justify-content: end;
+      }
     }
   }
 `;
