@@ -1,4 +1,4 @@
-import { StyledDropdown } from "./Dropdown.styles";
+import { StyledDropdown } from "./DropdownSingleOption.styles";
 import useOpenDropdown from "../../../hooks/use-open-dropdown";
 import OutsideClickWrapper from "../../../hooks/use-outside-click-wrapper";
 import { useCounterStore } from "../../../store/store";
@@ -11,14 +11,16 @@ interface MenuItem {
   setFunction: (value?: string) => void;
 }
 
-const Dropdown = ({
+const DropdownSingleOption = ({
   triggerButton,
+  placeholder,
   direction = "bottom",
   alignment,
   menuItems,
   disabled = false,
 }: {
-  triggerButton: React.ReactNode;
+  triggerButton?: React.ReactNode;
+  placeholder?: string;
   direction?: string;
   alignment?: string;
   menuItems: Array<MenuItem>;
@@ -43,7 +45,8 @@ const Dropdown = ({
     <OutsideClickWrapper callback={handleClickOutside}>
       <StyledDropdown>
         <button onClick={handleOpen} disabled={disabled}>
-          {triggerButton}
+          {placeholder ? placeholder : null}
+          {triggerButton ? triggerButton : null}
           <img
             src={ChevronDown}
             className={classNames("button", direction, { open: open })}
@@ -67,4 +70,4 @@ const Dropdown = ({
   );
 };
 
-export default Dropdown;
+export default DropdownSingleOption;

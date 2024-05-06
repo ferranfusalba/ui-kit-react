@@ -13,11 +13,14 @@ const Navbar = () => {
       <Link to="/button" className="[&.active]:font-bold">
         Button
       </Link>
-      <Link to="/dropdown" className="[&.active]:font-bold">
-        Dropdown
+      <Link to="/dropdown-positions" className="[&.active]:font-bold">
+        Dropdown (positions)
+      </Link>
+      <Link to="/dropdown-single-option" className="[&.active]:font-bold">
+        Dropdown Single Option
       </Link>
       <Link to="/dropdown-select-option" className="[&.active]:font-bold">
-        Dropdown Select
+        Dropdown Select Option
       </Link>
       <p>{import.meta.env.MODE}</p>
     </StyledNavbar>

@@ -8,6 +8,8 @@ export const StyledDropdown = styled.div`
     align-items: center;
     justify-content: center;
     gap: 8px;
+    font-family: "Roboto";
+
     &:not(:disabled) {
       cursor: pointer;
     }
@@ -59,6 +61,16 @@ export const StyledDropdown = styled.div`
     z-index: 1;
     display: flex;
     flex-direction: column;
+
+    button {
+      background-color: white;
+      color: black;
+      border: none;
+
+      &:hover {
+        color: blue;
+      }
+    }
 
     .menu-item {
       width: 100%;

@@ -35,8 +35,12 @@ body {
 .main-app {
   display: flex;
 
-  & > *:nth-child(1) {
-    width: 200px;
+  nav {
+    width: 300px;
+  }
+
+  main {
+    width: calc(100vw - 300px);
   }
 }
 

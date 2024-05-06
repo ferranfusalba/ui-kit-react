@@ -16,15 +16,25 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
+const DropdownSingleOptionLazyImport = createFileRoute(
+  '/dropdown-single-option',
+)()
 const DropdownSelectOptionLazyImport = createFileRoute(
   '/dropdown-select-option',
 )()
-const DropdownLazyImport = createFileRoute('/dropdown')()
+const DropdownPositionsLazyImport = createFileRoute('/dropdown-positions')()
 const ButtonLazyImport = createFileRoute('/button')()
 const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
+
+const DropdownSingleOptionLazyRoute = DropdownSingleOptionLazyImport.update({
+  path: '/dropdown-single-option',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/dropdown-single-option.lazy').then((d) => d.Route),
+)
 
 const DropdownSelectOptionLazyRoute = DropdownSelectOptionLazyImport.update({
   path: '/dropdown-select-option',
@@ -33,10 +43,12 @@ const DropdownSelectOptionLazyRoute = DropdownSelectOptionLazyImport.update({
   import('./routes/dropdown-select-option.lazy').then((d) => d.Route),
 )
 
-const DropdownLazyRoute = DropdownLazyImport.update({
-  path: '/dropdown',
+const DropdownPositionsLazyRoute = DropdownPositionsLazyImport.update({
+  path: '/dropdown-positions',
   getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/dropdown.lazy').then((d) => d.Route))
+} as any).lazy(() =>
+  import('./routes/dropdown-positions.lazy').then((d) => d.Route),
+)
 
 const ButtonLazyRoute = ButtonLazyImport.update({
   path: '/button',
@@ -69,12 +81,16 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ButtonLazyImport
       parentRoute: typeof rootRoute
     }
-    '/dropdown': {
-      preLoaderRoute: typeof DropdownLazyImport
+    '/dropdown-positions': {
+      preLoaderRoute: typeof DropdownPositionsLazyImport
       parentRoute: typeof rootRoute
     }
     '/dropdown-select-option': {
       preLoaderRoute: typeof DropdownSelectOptionLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/dropdown-single-option': {
+      preLoaderRoute: typeof DropdownSingleOptionLazyImport
       parentRoute: typeof rootRoute
     }
   }
@@ -86,8 +102,9 @@ export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
   AboutLazyRoute,
   ButtonLazyRoute,
-  DropdownLazyRoute,
+  DropdownPositionsLazyRoute,
   DropdownSelectOptionLazyRoute,
+  DropdownSingleOptionLazyRoute,
 ])
 
 /* prettier-ignore-end */

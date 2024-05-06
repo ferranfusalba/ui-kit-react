@@ -4,10 +4,10 @@ import ArrowUp from "../../src/assets/icons/arrow--up.svg";
 import ArrowDown from "../../src/assets/icons/arrow--down.svg";
 import ArrowRight from "../../src/assets/icons/arrow--right.svg";
 import { useCounterStore } from "../store/store";
-import Dropdown from "../components/dropdowns/absolute-div/Dropdown";
+import DropdownSingleOption from "../components/dropdowns/absolute-div/DropdownSingleOption";
 import LayoutCenter from "../styles/layouts/LayoutCenter";
 
-export const Route = createLazyFileRoute("/dropdown")({
+export const Route = createLazyFileRoute("/dropdown-positions")({
   component: DropdownPage,
 });
 
@@ -32,23 +32,23 @@ function DropdownPage() {
       <>
         <div className="container">
           <div>Default</div>
-          <Dropdown
-            triggerButton="Dropleft"
+          <DropdownSingleOption
+            placeholder="Dropleft"
             direction="direction-left"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropup"
+          <DropdownSingleOption
+            placeholder="Dropup"
             direction="direction-top"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropdown"
+          <DropdownSingleOption
+            placeholder="Dropdown"
             direction="direction-bottom"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropright"
+          <DropdownSingleOption
+            placeholder="Dropright"
             direction="direction-right"
             menuItems={menuItems}
           />
@@ -56,26 +56,26 @@ function DropdownPage() {
         <br />
         <div className="container">
           <div>from Bottom</div>
-          <Dropdown
-            triggerButton="Dropleft"
+          <DropdownSingleOption
+            placeholder="Dropleft"
             direction="direction-left"
             alignment="alignment-bottom"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropup"
+          <DropdownSingleOption
+            placeholder="Dropup"
             direction="direction-top"
             menuItems={menuItems}
             disabled
           />
-          <Dropdown
-            triggerButton="Dropdown"
+          <DropdownSingleOption
+            placeholder="Dropdown"
             direction="direction-bottom"
             menuItems={menuItems}
             disabled
           />
-          <Dropdown
-            triggerButton="Dropright"
+          <DropdownSingleOption
+            placeholder="Dropright"
             direction="direction-right"
             alignment="alignment-bottom"
             menuItems={menuItems}
@@ -84,26 +84,26 @@ function DropdownPage() {
         <br />
         <div className="container">
           <div>from Center-Y</div>
-          <Dropdown
-            triggerButton="Dropleft"
+          <DropdownSingleOption
+            placeholder="Dropleft"
             direction="direction-left"
             alignment="alignment-center-y"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropup"
+          <DropdownSingleOption
+            placeholder="Dropup"
             direction="direction-top"
             menuItems={menuItems}
             disabled
           />
-          <Dropdown
-            triggerButton="Dropdown"
+          <DropdownSingleOption
+            placeholder="Dropdown"
             direction="direction-bottom"
             menuItems={menuItems}
             disabled
           />
-          <Dropdown
-            triggerButton="Dropright"
+          <DropdownSingleOption
+            placeholder="Dropright"
             direction="direction-right"
             alignment="alignment-center-y"
             menuItems={menuItems}
@@ -112,26 +112,26 @@ function DropdownPage() {
         <br />
         <div className="container">
           <div>frop Top (= d.)</div>
-          <Dropdown
-            triggerButton="Dropleft"
+          <DropdownSingleOption
+            placeholder="Dropleft"
             direction="direction-left"
             alignment="alignment-top"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropup"
+          <DropdownSingleOption
+            placeholder="Dropup"
             direction="direction-top"
             menuItems={menuItems}
             disabled
           />
-          <Dropdown
-            triggerButton="Dropdown"
+          <DropdownSingleOption
+            placeholder="Dropdown"
             direction="direction-bottom"
             menuItems={menuItems}
             disabled
           />
-          <Dropdown
-            triggerButton="Dropright"
+          <DropdownSingleOption
+            placeholder="Dropright"
             direction="direction-right"
             alignment="alignment-top"
             menuItems={menuItems}
@@ -140,26 +140,26 @@ function DropdownPage() {
         <br />
         <div className="container">
           <div>from Left (= d.)</div>
-          <Dropdown
-            triggerButton="Dropleft"
+          <DropdownSingleOption
+            placeholder="Dropleft"
             direction="direction-left"
             menuItems={menuItems}
             disabled
           />
-          <Dropdown
-            triggerButton="Dropup"
+          <DropdownSingleOption
+            placeholder="Dropup"
             direction="direction-top"
             alignment="alignment-left"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropdown"
+          <DropdownSingleOption
+            placeholder="Dropdown"
             direction="direction-bottom"
             alignment="alignment-left"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropright"
+          <DropdownSingleOption
+            placeholder="Dropright"
             direction="direction-right"
             menuItems={menuItems}
             disabled
@@ -168,26 +168,26 @@ function DropdownPage() {
         <br />
         <div className="container">
           <div>from Center-X</div>
-          <Dropdown
-            triggerButton="Dropleft"
+          <DropdownSingleOption
+            placeholder="Dropleft"
             direction="direction-left"
             menuItems={menuItems}
             disabled
           />
-          <Dropdown
-            triggerButton="Dropup"
+          <DropdownSingleOption
+            placeholder="Dropup"
             direction="direction-top"
             alignment="alignment-center-x"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropdown"
+          <DropdownSingleOption
+            placeholder="Dropdown"
             direction="direction-bottom"
             alignment="alignment-center-x"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropright"
+          <DropdownSingleOption
+            placeholder="Dropright"
             direction="direction-right"
             menuItems={menuItems}
             disabled
@@ -196,26 +196,26 @@ function DropdownPage() {
         <br />
         <div className="container">
           <div>from Right</div>
-          <Dropdown
-            triggerButton="Dropleft"
+          <DropdownSingleOption
+            placeholder="Dropleft"
             direction="direction-left"
             menuItems={menuItems}
             disabled
           />
-          <Dropdown
-            triggerButton="Dropup"
+          <DropdownSingleOption
+            placeholder="Dropup"
             direction="direction-top"
             alignment="alignment-right"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropdown"
+          <DropdownSingleOption
+            placeholder="Dropdown"
             direction="direction-bottom"
             alignment="alignment-right"
             menuItems={menuItems}
           />
-          <Dropdown
-            triggerButton="Dropright"
+          <DropdownSingleOption
+            placeholder="Dropright"
             direction="direction-right"
             menuItems={menuItems}
             disabled
@@ -223,23 +223,23 @@ function DropdownPage() {
         </div>
         <br />
         <div className="container">
-          <div>Default</div>
-          <Dropdown
+          <div>Icon</div>
+          <DropdownSingleOption
             triggerButton={<img src={ArrowLeft} alt="" />}
             direction="direction-left"
             menuItems={menuItems}
           />
-          <Dropdown
+          <DropdownSingleOption
             triggerButton={<img src={ArrowUp} alt="" />}
             direction="direction-top"
             menuItems={menuItems}
           />
-          <Dropdown
+          <DropdownSingleOption
             triggerButton={<img src={ArrowDown} alt="" />}
             direction="direction-bottom"
             menuItems={menuItems}
           />
-          <Dropdown
+          <DropdownSingleOption
             triggerButton={<img src={ArrowRight} alt="" />}
             direction="direction-right"
             menuItems={menuItems}
