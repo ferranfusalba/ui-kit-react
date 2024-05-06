@@ -25,7 +25,7 @@ body {
 .container {
   display: flex;
   justify-content: space-around;
-  width: 1000px;
+  width: 100%;
 
   & > *:nth-child(1) {
     width: 120px;
@@ -36,7 +36,15 @@ body {
   display: flex;
 
   nav {
-    width: 300px;
+    transition: 0.3s ease-in-out;
+
+    &:not(.expanded) {
+      width: 200px;
+    }
+    
+    &.expanded {
+      width: 300px;
+    }
   }
 
   main {
