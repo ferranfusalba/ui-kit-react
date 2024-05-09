@@ -3,6 +3,7 @@ import ChevronLeft from "../../assets/icons/chevron--left.svg";
 import ChevronRight from "../../assets/icons/chevron--right.svg";
 import { useCoreStore } from "../../store/store";
 import NavbarItem from "./item/NavbarItem";
+import Switch from "../inputs/switch/Switch";
 
 const Navbar = () => {
   const isNavbarExpanded = useCoreStore((state) => state.isNavbarExpanded);
@@ -73,6 +74,13 @@ const Navbar = () => {
           className={navbarClassName}
         />
         <p>{import.meta.env.MODE}</p>
+        <Switch
+          id="mode-toggle"
+          htmlFor="mode-toggle"
+          label="Dark Mode"
+          disabled
+          readOnly
+        ></Switch>
       </div>
 
       <div>
