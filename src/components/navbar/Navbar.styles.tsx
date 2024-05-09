@@ -26,4 +26,10 @@ export const StyledNavbar = styled.nav`
       align-items: center;
     }
   }
+
+  &:not(.navbar-expanded) {
+    p {
+      display: none;
+    }
+  }
 `;

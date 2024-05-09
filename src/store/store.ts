@@ -8,6 +8,11 @@ interface CounterStore {
   setSelectedValue: (value: string) => void;
 }
 
+interface CoreStore {
+  isNavbarExpanded: boolean;
+  setNavbarExpanded: (value: boolean) => void;
+}
+
 export const useCounterStore = create<CounterStore>((set) => ({
   count: 0,
   value: "",
@@ -19,5 +24,12 @@ export const useCounterStore = create<CounterStore>((set) => ({
   },
   setSelectedValue: (value: string) => {
     set({ value: value });
+  },
+}));
+
+export const useCoreStore = create<CoreStore>((set) => ({
+  isNavbarExpanded: true,
+  setNavbarExpanded: (value: boolean) => {
+    set({ isNavbarExpanded: value });
   },
 }));

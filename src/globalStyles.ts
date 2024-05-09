@@ -38,17 +38,23 @@ body {
   nav {
     transition: 0.3s ease-in-out;
 
-    &:not(.expanded) {
-      width: 200px;
+    &:not(.navbar-expanded) {
+      width: 80px;
     }
     
-    &.expanded {
-      width: 300px;
+    &.navbar-expanded {
+      width: 270px;
     }
   }
 
   main {
-    width: calc(100vw - 300px);
+    &:not(.navbar-expanded) {
+      width: calc(100vw - 80px);
+    }
+    
+    &.navbar-expanded {
+      width: calc(100vw - 270px);
+    }
   }
 }
 

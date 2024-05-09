@@ -1,42 +1,65 @@
-import { useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { StyledNavbar } from "./Navbar.styles";
 import ChevronLeft from "../../assets/icons/chevron--left.svg";
 import ChevronRight from "../../assets/icons/chevron--right.svg";
+import { useCoreStore } from "../../store/store";
+import NavbarItem from "./item/NavbarItem";
 
 const Navbar = () => {
-  const [expanded, setExpanded] = useState(true);
+  const isNavbarExpanded = useCoreStore((state) => state.isNavbarExpanded);
+  const setNavbarExpanded = useCoreStore((state) => state.setNavbarExpanded);
+  const navbarClassName = isNavbarExpanded ? "navbar-expanded" : "";
 
   return (
-    <StyledNavbar className={expanded ? "expanded" : ""}>
+    <StyledNavbar className={navbarClassName}>
       <div>
-        <Link to="/" className="[&.active]:font-bold">
-          Home
-        </Link>
-        <Link to="/about" className="[&.active]:font-bold">
-          About
-        </Link>
-        <Link to="/button" className="[&.active]:font-bold">
-          Button
-        </Link>
-        <Link to="/dropdown-positions" className="[&.active]:font-bold">
-          Dropdown (positions)
-        </Link>
-        <Link to="/dropdown-single-option" className="[&.active]:font-bold">
-          Dropdown Single Option
-        </Link>
-        <Link to="/dropdown-select-option" className="[&.active]:font-bold">
-          Dropdown Select Option
-        </Link>
-        <Link to="/modal" className="[&.active]:font-bold">
-          Modal
-        </Link>
+        <NavbarItem
+          icon="home"
+          title="Home"
+          to="/"
+          className={navbarClassName}
+        />
+        <NavbarItem
+          icon="help"
+          title="About"
+          to="/about"
+          className={navbarClassName}
+        />
+        <NavbarItem
+          icon="buttons_alt"
+          title="Button"
+          to="/button"
+          className={navbarClassName}
+        />
+        <NavbarItem
+          icon="dropdown"
+          title="Dropdown (positions)"
+          to="/dropdown-positions"
+          className={navbarClassName}
+        />
+        <NavbarItem
+          icon="dropdown"
+          title="Dropdown Single Option"
+          to="/dropdown-single-option"
+          className={navbarClassName}
+        />
+        <NavbarItem
+          icon="dropdown"
+          title="Dropdown Select Option"
+          to="/dropdown-select-option"
+          className={navbarClassName}
+        />
+        <NavbarItem
+          icon="wysiwyg"
+          title="Modal"
+          to="/modal"
+          className={navbarClassName}
+        />
         <p>{import.meta.env.MODE}</p>
       </div>
 
       <div>
-        <button onClick={() => setExpanded(!expanded)}>
-          <img src={expanded ? ChevronLeft : ChevronRight} alt="" />
+        <button onClick={() => setNavbarExpanded(!isNavbarExpanded)}>
+          <img src={isNavbarExpanded ? ChevronLeft : ChevronRight} alt="" />
         </button>
       </div>
     </StyledNavbar>

@@ -1,6 +1,6 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { createRootRoute } from "@tanstack/react-router";
 import React from "react";
-import Navbar from "../components/navbar/Navbar";
+import App from "../App";
 
 const TanStackRouterDevtools =
   import.meta.env.MODE === "production"
@@ -17,12 +17,7 @@ const TanStackRouterDevtools =
 export const Route = createRootRoute({
   component: () => (
     <>
-      <div className="main-app">
-        <Navbar />
-        <main>
-          <Outlet />
-        </main>
-      </div>
+      <App />
       <TanStackRouterDevtools />
     </>
   ),
