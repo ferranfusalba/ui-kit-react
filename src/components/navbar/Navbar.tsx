@@ -28,6 +28,9 @@ const Navbar = () => {
         <Link to="/dropdown-select-option" className="[&.active]:font-bold">
           Dropdown Select Option
         </Link>
+        <Link to="/modal" className="[&.active]:font-bold">
+          Modal
+        </Link>
         <p>{import.meta.env.MODE}</p>
       </div>
 

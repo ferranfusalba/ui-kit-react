@@ -16,6 +16,7 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
+const ModalLazyImport = createFileRoute('/modal')()
 const DropdownSingleOptionLazyImport = createFileRoute(
   '/dropdown-single-option',
 )()
@@ -28,6 +29,11 @@ const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
+
+const ModalLazyRoute = ModalLazyImport.update({
+  path: '/modal',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/modal.lazy').then((d) => d.Route))
 
 const DropdownSingleOptionLazyRoute = DropdownSingleOptionLazyImport.update({
   path: '/dropdown-single-option',
@@ -93,6 +99,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DropdownSingleOptionLazyImport
       parentRoute: typeof rootRoute
     }
+    '/modal': {
+      preLoaderRoute: typeof ModalLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -105,6 +115,7 @@ export const routeTree = rootRoute.addChildren([
   DropdownPositionsLazyRoute,
   DropdownSelectOptionLazyRoute,
   DropdownSingleOptionLazyRoute,
+  ModalLazyRoute,
 ])
 
 /* prettier-ignore-end */
