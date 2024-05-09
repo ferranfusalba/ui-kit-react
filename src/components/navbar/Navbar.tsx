@@ -54,6 +54,24 @@ const Navbar = () => {
           to="/modal"
           className={navbarClassName}
         />
+        <NavbarItem
+          icon="check_box"
+          title="Checkbox"
+          to="/checkbox"
+          className={navbarClassName}
+        />
+        <NavbarItem
+          icon="radio_button_checked"
+          title="Radio"
+          to="/radio"
+          className={navbarClassName}
+        />
+        <NavbarItem
+          icon="switches"
+          title="Switch"
+          to="/switch"
+          className={navbarClassName}
+        />
         <p>{import.meta.env.MODE}</p>
       </div>
 
