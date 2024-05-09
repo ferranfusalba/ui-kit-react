@@ -4,6 +4,7 @@ import OutsideClickWrapper from "../../../hooks/use-outside-click-wrapper";
 import { useCounterStore } from "../../../store/store";
 import ChevronDown from "../../../assets/icons/chevron--down.svg";
 import classNames from "classnames";
+import { useState } from "react";
 
 interface MenuItem {
   label: string;
@@ -29,6 +30,7 @@ const DropdownSingleOption = ({
   // const setSelectedValue = useCounterStore((state) => state.setSelectedValue);
   const store = useCounterStore((state) => state);
   console.log("zustand store", store);
+  const [localValue, setLocalValue] = useState("");
 
   const { open, setOpen, handleOpen } = useOpenDropdown();
 
@@ -38,6 +40,7 @@ const DropdownSingleOption = ({
 
   const handleOption = (item: MenuItem) => {
     item.setFunction();
+    setLocalValue(item.value);
     handleOpen();
   };
 
@@ -45,7 +48,7 @@ const DropdownSingleOption = ({
     <OutsideClickWrapper callback={handleClickOutside}>
       <StyledDropdown>
         <button onClick={handleOpen} disabled={disabled}>
-          {placeholder ? placeholder : null}
+          {placeholder ? (localValue ? localValue : placeholder) : null}
           {triggerButton ? triggerButton : null}
           <img
             src={ChevronDown}
