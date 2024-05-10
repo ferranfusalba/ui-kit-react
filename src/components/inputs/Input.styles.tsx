@@ -31,8 +31,8 @@ export const StyledInput = styled.div`
       &:after {
         content: "";
         display: block;
-        left: 0;
-        top: 0;
+        left: 1px;
+        top: 1px;
         position: absolute;
         transition:
           transform var(--d-t, 0.3s) var(--d-t-e, ease),
@@ -107,7 +107,7 @@ export const StyledInput = styled.div`
         border-radius: 11px;
         &:after {
           left: 2px;
-          top: 2px;
+          top: 3px;
           border-radius: 50%;
           width: 15px;
           height: 15px;
