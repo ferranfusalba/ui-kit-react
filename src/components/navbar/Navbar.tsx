@@ -4,6 +4,7 @@ import ChevronRight from "../../assets/icons/chevron--right.svg";
 import { useCoreStore } from "../../store/store";
 import NavbarItem from "./item/NavbarItem";
 import Switch from "../inputs/switch/Switch";
+import NavbarSubMenu from "./sub-menu/NavbarSubMenu";
 
 const Navbar = () => {
   const isNavbarExpanded = useCoreStore((state) => state.isNavbarExpanded);
@@ -12,6 +13,13 @@ const Navbar = () => {
 
   return (
     <StyledNavbar className={navbarClassName}>
+      <div>
+        <div></div>
+
+        <button onClick={() => setNavbarExpanded(!isNavbarExpanded)}>
+          <img src={isNavbarExpanded ? ChevronLeft : ChevronRight} alt="" />
+        </button>
+      </div>
       <div>
         <NavbarItem
           icon="home"
@@ -32,61 +40,73 @@ const Navbar = () => {
           className={navbarClassName}
         />
         <NavbarItem
-          icon="dropdown"
-          title="Dropdown (positions)"
-          to="/dropdown-positions"
-          className={navbarClassName}
-        />
-        <NavbarItem
-          icon="dropdown"
-          title="Dropdown Single Option"
-          to="/dropdown-single-option"
-          className={navbarClassName}
-        />
-        <NavbarItem
-          icon="dropdown"
-          title="Dropdown Select Option"
-          to="/dropdown-select-option"
-          className={navbarClassName}
-        />
-        <NavbarItem
           icon="wysiwyg"
           title="Modal"
           to="/modal"
           className={navbarClassName}
         />
-        <NavbarItem
-          icon="check_box"
-          title="Checkbox"
-          to="/checkbox"
+        <NavbarSubMenu
+          icon="dropdown"
+          title="Dropdowns"
           className={navbarClassName}
-        />
-        <NavbarItem
-          icon="radio_button_checked"
-          title="Radio"
-          to="/radio"
+          items={[
+            {
+              icon: "dropdown",
+              title: "Dropdown (positions)",
+              to: "/dropdown-positions",
+              className: navbarClassName,
+            },
+            {
+              icon: "dropdown",
+              title: "Dropdown Single Option",
+              to: "/dropdown-single-option",
+              className: navbarClassName,
+            },
+            {
+              icon: "dropdown",
+              title: "Dropdown Select Option",
+              to: "/dropdown-select-option",
+              className: navbarClassName,
+            },
+          ]}
+        ></NavbarSubMenu>
+        <NavbarSubMenu
+          icon="input"
+          title="Inputs"
           className={navbarClassName}
-        />
-        <NavbarItem
-          icon="switches"
-          title="Switch"
-          to="/switch"
-          className={navbarClassName}
-        />
-        <p>{import.meta.env.MODE}</p>
-        <Switch
-          id="mode-toggle"
-          htmlFor="mode-toggle"
-          label="Dark Mode"
-          disabled
-          readOnly
-        ></Switch>
-      </div>
-
-      <div>
-        <button onClick={() => setNavbarExpanded(!isNavbarExpanded)}>
-          <img src={isNavbarExpanded ? ChevronLeft : ChevronRight} alt="" />
-        </button>
+          items={[
+            {
+              icon: "check_box",
+              title: "Checkbox",
+              to: "/checkbox",
+              className: navbarClassName,
+            },
+            {
+              icon: "radio_button_checked",
+              title: "Radio",
+              to: "/radio",
+              className: navbarClassName,
+            },
+            {
+              icon: "switches",
+              title: "Switch",
+              to: "/switch",
+              className: navbarClassName,
+            },
+          ]}
+        ></NavbarSubMenu>
+        {isNavbarExpanded && (
+          <>
+            <p>{import.meta.env.MODE}</p>
+            <Switch
+              id="mode-toggle"
+              htmlFor="mode-toggle"
+              label="Dark Mode"
+              disabled
+              readOnly
+            ></Switch>
+          </>
+        )}
       </div>
     </StyledNavbar>
   );

@@ -2,17 +2,15 @@ import styled from "styled-components";
 
 export const StyledNavbar = styled.nav`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   border-right: 1px solid red;
   height: 100vh;
   width: 100%;
 
-  div:nth-child(1) {
+  & > *:nth-child(1) {
     display: flex;
-    flex-direction: column;
-  }
+    justify-content: space-between;
 
-  div:nth-child(2) {
     button {
       cursor: pointer;
       border: none;
@@ -24,12 +22,6 @@ export const StyledNavbar = styled.nav`
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-  }
-
-  &:not(.navbar-expanded) {
-    p {
-      display: none;
     }
   }
 `;

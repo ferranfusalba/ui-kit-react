@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { StyledNavbarItem } from "./NavbarItem.styles";
+import ListItem from "../../list-item/ListItem";
 
 const NavbarItem = ({
   icon,
@@ -7,16 +8,15 @@ const NavbarItem = ({
   to,
   className,
 }: {
-  icon: React.ReactNode;
+  icon: string;
   title: string;
   to: string;
   className: string;
 }) => {
   return (
-    <StyledNavbarItem className={className}>
+    <StyledNavbarItem>
       <Link to={to}>
-        <aside className="material-symbols-outlined">{icon}</aside>
-        <span>{title}</span>
+        <ListItem className={className} icon={icon} title={title}></ListItem>
       </Link>
     </StyledNavbarItem>
   );
