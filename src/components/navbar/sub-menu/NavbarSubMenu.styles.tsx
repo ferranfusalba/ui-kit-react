@@ -5,16 +5,8 @@ export const StyledNavbarSubMenu = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     cursor: pointer;
-
-    img {
-      height: 20px;
-      transition: 0.3s ease-in-out;
-
-      &.open {
-        transform: rotate(180deg);
-      }
-    }
   }
 
   .items-section {

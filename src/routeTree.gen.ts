@@ -18,6 +18,7 @@ import { Route as rootRoute } from './routes/__root'
 
 const SwitchLazyImport = createFileRoute('/switch')()
 const RadioLazyImport = createFileRoute('/radio')()
+const Modal2LazyImport = createFileRoute('/modal-2')()
 const ModalLazyImport = createFileRoute('/modal')()
 const DropdownSingleOptionLazyImport = createFileRoute(
   '/dropdown-single-option',
@@ -28,7 +29,6 @@ const DropdownSelectOptionLazyImport = createFileRoute(
 const DropdownPositionsLazyImport = createFileRoute('/dropdown-positions')()
 const CheckboxLazyImport = createFileRoute('/checkbox')()
 const ButtonLazyImport = createFileRoute('/button')()
-const AboutLazyImport = createFileRoute('/about')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
@@ -42,6 +42,11 @@ const RadioLazyRoute = RadioLazyImport.update({
   path: '/radio',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/radio.lazy').then((d) => d.Route))
+
+const Modal2LazyRoute = Modal2LazyImport.update({
+  path: '/modal-2',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/modal-2.lazy').then((d) => d.Route))
 
 const ModalLazyRoute = ModalLazyImport.update({
   path: '/modal',
@@ -79,11 +84,6 @@ const ButtonLazyRoute = ButtonLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/button.lazy').then((d) => d.Route))
 
-const AboutLazyRoute = AboutLazyImport.update({
-  path: '/about',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
-
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
@@ -95,10 +95,6 @@ declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
       preLoaderRoute: typeof IndexLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/about': {
-      preLoaderRoute: typeof AboutLazyImport
       parentRoute: typeof rootRoute
     }
     '/button': {
@@ -125,6 +121,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ModalLazyImport
       parentRoute: typeof rootRoute
     }
+    '/modal-2': {
+      preLoaderRoute: typeof Modal2LazyImport
+      parentRoute: typeof rootRoute
+    }
     '/radio': {
       preLoaderRoute: typeof RadioLazyImport
       parentRoute: typeof rootRoute
@@ -140,13 +140,13 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
-  AboutLazyRoute,
   ButtonLazyRoute,
   CheckboxLazyRoute,
   DropdownPositionsLazyRoute,
   DropdownSelectOptionLazyRoute,
   DropdownSingleOptionLazyRoute,
   ModalLazyRoute,
+  Modal2LazyRoute,
   RadioLazyRoute,
   SwitchLazyRoute,
 ])

@@ -1,10 +1,10 @@
 import { StyledNavbar } from "./Navbar.styles";
-import ChevronLeft from "../../assets/icons/chevron--left.svg";
-import ChevronRight from "../../assets/icons/chevron--right.svg";
 import { useCoreStore } from "../../store/store";
 import NavbarItem from "./item/NavbarItem";
 import Switch from "../inputs/switch/Switch";
 import NavbarSubMenu from "./sub-menu/NavbarSubMenu";
+import NavbarSectionTitle from "./section-title/NavbarSectionTitle";
+import ToggleChevronLeft from "../togglers/chevron-left/ToggleChevronLeft";
 
 const Navbar = () => {
   const isNavbarExpanded = useCoreStore((state) => state.isNavbarExpanded);
@@ -14,10 +14,12 @@ const Navbar = () => {
   return (
     <StyledNavbar className={navbarClassName}>
       <div>
-        <div></div>
-
+        <NavbarSectionTitle
+          title="UI"
+          isNavbarExpanded={isNavbarExpanded}
+        ></NavbarSectionTitle>
         <button onClick={() => setNavbarExpanded(!isNavbarExpanded)}>
-          <img src={isNavbarExpanded ? ChevronLeft : ChevronRight} alt="" />
+          <ToggleChevronLeft open={!isNavbarExpanded}></ToggleChevronLeft>
         </button>
       </div>
       <div>
@@ -25,24 +27,6 @@ const Navbar = () => {
           icon="home"
           title="Home"
           to="/"
-          className={navbarClassName}
-        />
-        <NavbarItem
-          icon="help"
-          title="About"
-          to="/about"
-          className={navbarClassName}
-        />
-        <NavbarItem
-          icon="buttons_alt"
-          title="Button"
-          to="/button"
-          className={navbarClassName}
-        />
-        <NavbarItem
-          icon="wysiwyg"
-          title="Modal"
-          to="/modal"
           className={navbarClassName}
         />
         <NavbarSubMenu
@@ -95,19 +79,52 @@ const Navbar = () => {
             },
           ]}
         ></NavbarSubMenu>
-        {isNavbarExpanded && (
-          <>
-            <p>{import.meta.env.MODE}</p>
-            <Switch
-              id="mode-toggle"
-              htmlFor="mode-toggle"
-              label="Dark Mode"
-              disabled
-              readOnly
-            ></Switch>
-          </>
-        )}
+        <NavbarSubMenu
+          icon="wysiwyg"
+          title="Modals"
+          className={navbarClassName}
+          items={[
+            {
+              icon: "check_box",
+              title: "Modal dialog 1",
+              to: "/modal",
+              className: navbarClassName,
+            },
+            {
+              icon: "check_box",
+              title: "Modal dialog 2",
+              to: "/modal-2",
+              className: navbarClassName,
+            },
+          ]}
+        ></NavbarSubMenu>
       </div>
+      <div>
+        <NavbarSectionTitle
+          title="Material Web"
+          isNavbarExpanded={isNavbarExpanded}
+        ></NavbarSectionTitle>
+      </div>
+      <div>
+        <NavbarItem
+          icon="buttons_alt"
+          title="Button"
+          to="/button"
+          className={navbarClassName}
+        />
+      </div>
+      {isNavbarExpanded && (
+        <div>
+          <p>{import.meta.env.MODE}</p>
+          <Switch
+            id="mode-toggle"
+            htmlFor="mode-toggle"
+            label="Dark Mode"
+            disabled
+            readOnly
+          ></Switch>
+        </div>
+      )}
     </StyledNavbar>
   );
 };

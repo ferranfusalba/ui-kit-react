@@ -14,10 +14,9 @@ export const StyledNavbar = styled.nav`
     button {
       cursor: pointer;
       border: none;
-      border-radius: 6px;
-      background-color: lightgrey;
-      width: 28px;
-      height: 28px;
+      background-color: transparent;
+      width: 24px;
+      height: 24px;
       padding: 0;
       display: flex;
       justify-content: center;

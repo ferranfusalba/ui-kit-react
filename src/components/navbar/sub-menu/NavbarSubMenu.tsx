@@ -2,7 +2,7 @@ import { useState } from "react";
 import { StyledNavbarSubMenu } from "./NavbarSubMenu.styles";
 import NavbarItem from "../item/NavbarItem";
 import ListItem from "../../list-item/ListItem";
-import ChevronDown from "../../../assets/icons/chevron--down.svg";
+import ToggleChevronDown from "../../togglers/chevron-down/ToggleChevronDown";
 
 const NavbarMenuItem = ({
   icon,
@@ -30,7 +30,7 @@ const NavbarMenuItem = ({
     <StyledNavbarSubMenu>
       <div className="toggle-section" onClick={handleOpen}>
         <ListItem icon={icon} title={title} className={className}></ListItem>
-        <img src={ChevronDown} className={open ? "open" : ""}></img>
+        <ToggleChevronDown open={open}></ToggleChevronDown>
       </div>
       <div className="items-section">
         {open
