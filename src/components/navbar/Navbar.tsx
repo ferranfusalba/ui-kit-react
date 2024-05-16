@@ -98,6 +98,31 @@ const Navbar = () => {
             },
           ]}
         ></NavbarSubMenu>
+        <NavbarSubMenu
+          icon="tooltip"
+          title="Tooltips"
+          className={navbarClassName}
+          items={[
+            {
+              icon: "tooltip",
+              title: "React Tooltip",
+              to: "/tooltip-react",
+              className: navbarClassName,
+            },
+            {
+              icon: "tooltip",
+              title: "CSS Tooltip",
+              to: "/tooltip-css",
+              className: navbarClassName,
+            },
+            {
+              icon: "tooltip",
+              title: "Popover Tooltip",
+              to: "/tooltip-popover",
+              className: navbarClassName,
+            },
+          ]}
+        ></NavbarSubMenu>
       </div>
       <div>
         <NavbarSectionTitle

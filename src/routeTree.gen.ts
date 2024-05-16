@@ -16,6 +16,9 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
+const TooltipReactLazyImport = createFileRoute('/tooltip-react')()
+const TooltipPopoverLazyImport = createFileRoute('/tooltip-popover')()
+const TooltipCssLazyImport = createFileRoute('/tooltip-css')()
 const SwitchLazyImport = createFileRoute('/switch')()
 const RadioLazyImport = createFileRoute('/radio')()
 const Modal2LazyImport = createFileRoute('/modal-2')()
@@ -32,6 +35,23 @@ const ButtonLazyImport = createFileRoute('/button')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
+
+const TooltipReactLazyRoute = TooltipReactLazyImport.update({
+  path: '/tooltip-react',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/tooltip-react.lazy').then((d) => d.Route))
+
+const TooltipPopoverLazyRoute = TooltipPopoverLazyImport.update({
+  path: '/tooltip-popover',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/tooltip-popover.lazy').then((d) => d.Route),
+)
+
+const TooltipCssLazyRoute = TooltipCssLazyImport.update({
+  path: '/tooltip-css',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/tooltip-css.lazy').then((d) => d.Route))
 
 const SwitchLazyRoute = SwitchLazyImport.update({
   path: '/switch',
@@ -133,6 +153,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SwitchLazyImport
       parentRoute: typeof rootRoute
     }
+    '/tooltip-css': {
+      preLoaderRoute: typeof TooltipCssLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/tooltip-popover': {
+      preLoaderRoute: typeof TooltipPopoverLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/tooltip-react': {
+      preLoaderRoute: typeof TooltipReactLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -149,6 +181,9 @@ export const routeTree = rootRoute.addChildren([
   Modal2LazyRoute,
   RadioLazyRoute,
   SwitchLazyRoute,
+  TooltipCssLazyRoute,
+  TooltipPopoverLazyRoute,
+  TooltipReactLazyRoute,
 ])
 
 /* prettier-ignore-end */
