@@ -13,12 +13,13 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as TooltipsImport } from './routes/tooltips'
+import { Route as TooltipsReactImport } from './routes/tooltips.react'
+import { Route as TooltipsPopoverImport } from './routes/tooltips.popover'
+import { Route as TooltipsCssImport } from './routes/tooltips.css'
 
 // Create Virtual Routes
 
-const TooltipReactLazyImport = createFileRoute('/tooltip-react')()
-const TooltipPopoverLazyImport = createFileRoute('/tooltip-popover')()
-const TooltipCssLazyImport = createFileRoute('/tooltip-css')()
 const SwitchLazyImport = createFileRoute('/switch')()
 const RadioLazyImport = createFileRoute('/radio')()
 const Modal2LazyImport = createFileRoute('/modal-2')()
@@ -35,23 +36,6 @@ const ButtonLazyImport = createFileRoute('/button')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
-
-const TooltipReactLazyRoute = TooltipReactLazyImport.update({
-  path: '/tooltip-react',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/tooltip-react.lazy').then((d) => d.Route))
-
-const TooltipPopoverLazyRoute = TooltipPopoverLazyImport.update({
-  path: '/tooltip-popover',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() =>
-  import('./routes/tooltip-popover.lazy').then((d) => d.Route),
-)
-
-const TooltipCssLazyRoute = TooltipCssLazyImport.update({
-  path: '/tooltip-css',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/tooltip-css.lazy').then((d) => d.Route))
 
 const SwitchLazyRoute = SwitchLazyImport.update({
   path: '/switch',
@@ -104,10 +88,30 @@ const ButtonLazyRoute = ButtonLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/button.lazy').then((d) => d.Route))
 
+const TooltipsRoute = TooltipsImport.update({
+  path: '/tooltips',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+
+const TooltipsReactRoute = TooltipsReactImport.update({
+  path: '/react',
+  getParentRoute: () => TooltipsRoute,
+} as any)
+
+const TooltipsPopoverRoute = TooltipsPopoverImport.update({
+  path: '/popover',
+  getParentRoute: () => TooltipsRoute,
+} as any)
+
+const TooltipsCssRoute = TooltipsCssImport.update({
+  path: '/css',
+  getParentRoute: () => TooltipsRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -115,6 +119,10 @@ declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
       preLoaderRoute: typeof IndexLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/tooltips': {
+      preLoaderRoute: typeof TooltipsImport
       parentRoute: typeof rootRoute
     }
     '/button': {
@@ -153,17 +161,17 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SwitchLazyImport
       parentRoute: typeof rootRoute
     }
-    '/tooltip-css': {
-      preLoaderRoute: typeof TooltipCssLazyImport
-      parentRoute: typeof rootRoute
+    '/tooltips/css': {
+      preLoaderRoute: typeof TooltipsCssImport
+      parentRoute: typeof TooltipsImport
     }
-    '/tooltip-popover': {
-      preLoaderRoute: typeof TooltipPopoverLazyImport
-      parentRoute: typeof rootRoute
+    '/tooltips/popover': {
+      preLoaderRoute: typeof TooltipsPopoverImport
+      parentRoute: typeof TooltipsImport
     }
-    '/tooltip-react': {
-      preLoaderRoute: typeof TooltipReactLazyImport
-      parentRoute: typeof rootRoute
+    '/tooltips/react': {
+      preLoaderRoute: typeof TooltipsReactImport
+      parentRoute: typeof TooltipsImport
     }
   }
 }
@@ -172,6 +180,11 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
+  TooltipsRoute.addChildren([
+    TooltipsCssRoute,
+    TooltipsPopoverRoute,
+    TooltipsReactRoute,
+  ]),
   ButtonLazyRoute,
   CheckboxLazyRoute,
   DropdownPositionsLazyRoute,
@@ -181,9 +194,6 @@ export const routeTree = rootRoute.addChildren([
   Modal2LazyRoute,
   RadioLazyRoute,
   SwitchLazyRoute,
-  TooltipCssLazyRoute,
-  TooltipPopoverLazyRoute,
-  TooltipReactLazyRoute,
 ])
 
 /* prettier-ignore-end */

@@ -1,7 +1,7 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import TooltipCSS from "../components/tooltips/tooltip-css/TooltipCSS";
 
-export const Route = createLazyFileRoute("/tooltip-css")({
+export const Route = createFileRoute("/tooltips/css")({
   component: TooltipCSSPage,
 });
 

@@ -1,7 +1,7 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import TooltipPopover from "../components/tooltips/tooltip-popover/TooltipPopover";
 
-export const Route = createLazyFileRoute("/tooltip-popover")({
+export const Route = createFileRoute("/tooltips/popover")({
   component: TooltipPopoverPage,
 });
 

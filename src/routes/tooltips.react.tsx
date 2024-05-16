@@ -1,7 +1,7 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import TooltipReact from "../components/tooltips/tooltip-react/TooltipReact";
 
-export const Route = createLazyFileRoute("/tooltip-react")({
+export const Route = createFileRoute("/tooltips/react")({
   component: TooltipReactPage,
 });
 

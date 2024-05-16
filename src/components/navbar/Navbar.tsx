@@ -106,19 +106,19 @@ const Navbar = () => {
             {
               icon: "tooltip",
               title: "React Tooltip",
-              to: "/tooltip-react",
+              to: "/tooltips/react",
               className: navbarClassName,
             },
             {
               icon: "tooltip",
               title: "CSS Tooltip",
-              to: "/tooltip-css",
+              to: "/tooltips/css",
               className: navbarClassName,
             },
             {
               icon: "tooltip",
               title: "Popover Tooltip",
-              to: "/tooltip-popover",
+              to: "/tooltips/popover",
               className: navbarClassName,
             },
           ]}
