@@ -25,6 +25,11 @@ function DropdownPage() {
       label: "Google Accounts",
       setFunction: () => setSelectedValue("googleAccounts"),
     },
+    {
+      value: "googleAccounts",
+      label: "Google Accounts LONG NAME",
+      setFunction: () => setSelectedValue("googleAccounts"),
+    },
   ];
 
   return (

@@ -6,15 +6,59 @@ export const StyledDropdown = styled.div`
   button {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 8px;
     font-family: "Roboto";
+    font-size: 14px;
+    border: none;
+    transition: all 0.15s ease-in-out;
+    height: 32px;
+    padding: 4px 10px;
+    // width: 160px; // TODO: Review text-overflow behavior
+    min-width: 160px;
+
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     &:not(:disabled) {
       cursor: pointer;
+      background-color: white;
+      color: darkblue;
     }
     &:disabled {
       cursor: not-allowed;
+      background-color: lightgrey;
+      color: grey;
+    }
+
+    &.open {
+      &.direction-top {
+        border-radius: 0 0 6px 6px;
+        // box-shadow: 0px -6px 8px 0px #00000019;
+        box-shadow: 0px 6px 8px 0px #00000019;
+      }
+
+      &.direction-bottom {
+        border-radius: 6px 6px 0 0;
+        box-shadow: 0px 6px 8px 0px #00000019;
+      }
+
+      &.direction-left {
+        border-radius: 0 6px 6px 0;
+        box-shadow: 0px 6px 8px 0px #00000019;
+      }
+
+      &.direction-right {
+        border-radius: 6px 0 0 6px;
+        box-shadow: 0px 6px 8px 0px #00000019;
+      }
+    }
+
+    &:not(.open) {
+      border-radius: 6px;
     }
 
     img {
@@ -51,54 +95,95 @@ export const StyledDropdown = styled.div`
         }
       }
     }
+
+    // TODO: Review optional
+    &.direction-right {
+      display: flex;
+      justify-content: end;
+      width: 100%;
+    }
   }
 
   .dropdown-menu {
     position: absolute;
-    border: 1px solid grey;
     background-color: lightgrey;
-    width: 150px;
+    min-width: 160px;
     z-index: 1;
     display: flex;
     flex-direction: column;
 
-    button {
+    .menu-item {
       background-color: white;
       color: black;
       border: none;
+      width: 100%;
+      cursor: pointer;
+      font-size: 14px;
 
       &:hover {
-        color: blue;
+        background-color: darkblue;
+        color: white;
       }
-    }
-
-    .menu-item {
-      width: 100%;
     }
 
     &.direction-bottom {
       top: 100%;
+      border-radius: 0 0 6px 6px;
+      box-shadow: 0px 6px 8px 0px #00000019;
+
+      .menu-item:last-child {
+        border-radius: 0 0 6px 6px;
+      }
     }
 
     &.direction-top {
       bottom: 100%; // TODO: Fix spacing - bottom from 88% ?
+      border-radius: 6px 6px 0 0;
+      box-shadow: 0px -6px 8px 0px #00000019;
+
+      .menu-item:first-child {
+        border-radius: 6px 6px 0 0;
+      }
     }
 
     &.direction-left {
       right: 100%;
       top: 0%;
+      border-radius: 6px 0 0 6px;
+      box-shadow: 0px 6px 8px 0px #00000019;
 
       .menu-item {
         justify-content: end;
+
+        &:first-child {
+          border-radius: 6px 0 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 0 0 6px;
+        }
       }
+
+      // TODO: Review optional
+      text-align: end;
     }
 
     &.direction-right {
       left: 100%;
       top: 0;
+      border-radius: 0 6px 6px 0;
+      box-shadow: 0px 6px 8px 0px #00000019;
 
       .menu-item {
         justify-content: start;
+
+        &:first-child {
+          border-radius: 0 6px 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 0 6px 0;
+        }
       }
     }
 

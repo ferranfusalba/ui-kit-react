@@ -31,6 +31,7 @@ const DropdownSingleOption = ({
   const store = useCounterStore((state) => state);
   console.log("zustand store", store);
   const [localValue, setLocalValue] = useState("");
+  const [localLabel, setLocalLabel] = useState("");
 
   const { open, setOpen, handleOpen } = useOpenDropdown();
 
@@ -41,30 +42,39 @@ const DropdownSingleOption = ({
   const handleOption = (item: MenuItem) => {
     item.setFunction();
     setLocalValue(item.value);
+    setLocalLabel(item.label);
     handleOpen();
   };
 
   return (
     <OutsideClickWrapper callback={handleClickOutside}>
       <StyledDropdown>
-        <button onClick={handleOpen} disabled={disabled}>
-          {placeholder ? (localValue ? localValue : placeholder) : null}
+        <button
+          onClick={handleOpen}
+          disabled={disabled}
+          className={classNames(direction, { open: open })}
+        >
+          <span>
+            {placeholder ? (localLabel ? localLabel : placeholder) : null}
+          </span>
+
           {triggerButton ? triggerButton : null}
           <img
             src={ChevronDown}
             className={classNames("button", direction, { open: open })}
           ></img>
         </button>
+
         {open ? (
           <div className={classNames("dropdown-menu", direction, alignment)}>
             {menuItems.map((menu, index) => (
-              <button
+              <div
                 onClick={() => handleOption(menu)}
                 key={index}
                 className="menu-item"
               >
                 {menu.label}
-              </button>
+              </div>
             ))}
           </div>
         ) : null}
