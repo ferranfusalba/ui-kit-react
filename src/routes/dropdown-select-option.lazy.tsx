@@ -71,7 +71,7 @@ function DropdownSelectOptionPage() {
                 { label: "Saturday", value: "saturday" },
                 { label: "Sunday", value: "sunday" },
               ]}
-              value={alert}
+              value={every}
               onChange={handleEveryChange}
             />
             <br />
@@ -103,7 +103,7 @@ function DropdownSelectOptionPage() {
                 { label: "22:00", value: "22:00" },
                 { label: "23:00", value: "23:00" },
               ]}
-              value={frequency}
+              value={at}
               onChange={handleAtChange}
             />
 

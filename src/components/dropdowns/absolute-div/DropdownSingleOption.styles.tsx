@@ -14,8 +14,8 @@ export const StyledDropdown = styled.div`
     transition: all 0.15s ease-in-out;
     height: 32px;
     padding: 4px 10px;
-    // width: 160px; // TODO: Review text-overflow behavior
-    min-width: 160px;
+    width: 160px; // TODO: Review text-overflow behavior
+    // min-width: 160px;
 
     span {
       white-space: nowrap;

@@ -1,12 +1,12 @@
 import { useRef, useEffect } from "react";
 
 interface Props {
-  callback: Function;
+  callback: () => void;
   children: React.ReactNode;
 }
 
 // TODO: Replace any
-function useOutsideWrapper(ref: any, callback: Function) {
+function useOutsideWrapper(ref: any, callback: () => void) {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (ref.current && !ref.current.contains(event.target)) {

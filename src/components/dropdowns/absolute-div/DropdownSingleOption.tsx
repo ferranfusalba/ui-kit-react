@@ -30,7 +30,6 @@ const DropdownSingleOption = ({
   // const setSelectedValue = useCounterStore((state) => state.setSelectedValue);
   const store = useCounterStore((state) => state);
   console.log("zustand store", store);
-  const [localValue, setLocalValue] = useState("");
   const [localLabel, setLocalLabel] = useState("");
 
   const { open, setOpen, handleOpen } = useOpenDropdown();
@@ -41,7 +40,6 @@ const DropdownSingleOption = ({
 
   const handleOption = (item: MenuItem) => {
     item.setFunction();
-    setLocalValue(item.value);
     setLocalLabel(item.label);
     handleOpen();
   };
