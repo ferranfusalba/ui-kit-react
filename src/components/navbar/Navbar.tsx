@@ -5,11 +5,32 @@ import Switch from "../inputs/switch/Switch";
 import NavbarSubMenu from "./sub-menu/NavbarSubMenu";
 import NavbarSectionTitle from "./section-title/NavbarSectionTitle";
 import ToggleChevronLeft from "../togglers/chevron-left/ToggleChevronLeft";
+import React from "react";
 
 const Navbar = () => {
   const isNavbarExpanded = useCoreStore((state) => state.isNavbarExpanded);
   const setNavbarExpanded = useCoreStore((state) => state.setNavbarExpanded);
   const navbarClassName = isNavbarExpanded ? "navbar-expanded" : "";
+
+  const setDarkMode = () => {
+    document.querySelector("body")?.setAttribute("data-theme", "dark");
+    localStorage.setItem("selectedTheme", "dark");
+  };
+  const setLightMode = () => {
+    document.querySelector("body")?.setAttribute("data-theme", "light");
+    localStorage.setItem("selectedTheme", "light");
+  };
+
+  const selectedThemeLS = localStorage.getItem("selectedTheme");
+
+  if (selectedThemeLS === "dark") {
+    setDarkMode();
+  }
+
+  const toggleTheme = (e: React.BaseSyntheticEvent) => {
+    if (e.target.checked) setDarkMode();
+    else setLightMode();
+  };
 
   return (
     <StyledNavbar className={navbarClassName}>
@@ -145,8 +166,8 @@ const Navbar = () => {
             id="mode-toggle"
             htmlFor="mode-toggle"
             label="Dark Mode"
-            disabled
-            readOnly
+            handleChange={toggleTheme}
+            defaultChecked={selectedThemeLS === "dark"}
           ></Switch>
         </div>
       )}

@@ -1,16 +1,18 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+[data-theme="dark"] {
+  --body-background: #242424;
+  --body-color: rgba(255, 255, 255, 0.87)
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  // color: rgba(255, 255, 255, 0.87);
-  // background-color: #242424;
-  color: #213547;
-  background-color: #f0f5f8;
+  --body-background: #f0f5f8;
+  --body-color: #213547;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,9 +21,16 @@ const GlobalStyle = createGlobalStyle`
   -webkit-text-size-adjust: 100%;
 }
 
+/* * {
+  transition: all 0.3s ease-in-out;
+} */
+
 body {
   margin: 0;
   display: flex;
+
+  background-color: var(--body-background);
+  color: var(--body-color);
 }
 
 .container {
@@ -57,13 +66,6 @@ body {
     &.navbar-expanded {
       width: calc(100vw - 270px);
     }
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
   }
 }
 `;
