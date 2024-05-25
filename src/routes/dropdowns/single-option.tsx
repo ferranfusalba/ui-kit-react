@@ -1,9 +1,9 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
-import DropdownSingleOption from "../components/dropdowns/absolute-div/DropdownSingleOption";
-import LayoutCenter from "../styles/layouts/LayoutCenter";
-import { useCounterStore } from "../store/store";
+import { createFileRoute } from "@tanstack/react-router";
+import DropdownSingleOption from "../../components/dropdowns/absolute-div/DropdownSingleOption";
+import LayoutCenter from "../../styles/layouts/LayoutCenter";
+import { useCounterStore } from "../../store/store";
 
-export const Route = createLazyFileRoute("/dropdown-single-option")({
+export const Route = createFileRoute("/dropdowns/single-option")({
   component: DropdownSingleOptionPage,
 });
 

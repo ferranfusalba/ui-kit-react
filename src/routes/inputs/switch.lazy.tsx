@@ -1,7 +1,7 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
-import Switch from "../components/inputs/switch/Switch";
+import { createFileRoute } from "@tanstack/react-router";
+import Switch from "../../components/inputs/switch/Switch";
 
-export const Route = createLazyFileRoute("/switch")({
+export const Route = createFileRoute("/inputs/switch")({
   component: SwitchPage,
 });
 

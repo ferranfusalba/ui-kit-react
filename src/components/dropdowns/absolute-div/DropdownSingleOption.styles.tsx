@@ -100,7 +100,7 @@ export const StyledDropdown = styled.div`
     &.direction-right {
       display: flex;
       justify-content: end;
-      width: 100%;
+      // width: 100%;
     }
   }
 

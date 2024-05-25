@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import TooltipReact from "../components/tooltips/tooltip-react/TooltipReact";
+import TooltipReact from "../../components/tooltips/tooltip-react/TooltipReact";
 
 export const Route = createFileRoute("/tooltips/react")({
   component: TooltipReactPage,

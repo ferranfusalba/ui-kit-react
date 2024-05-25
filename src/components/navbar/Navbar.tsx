@@ -37,19 +37,19 @@ const Navbar = () => {
             {
               icon: "dropdown",
               title: "Dropdown (positions)",
-              to: "/dropdown-positions",
+              to: "/dropdowns/positions",
               className: navbarClassName,
             },
             {
               icon: "dropdown",
               title: "Dropdown Single Option",
-              to: "/dropdown-single-option",
+              to: "/dropdowns/single-option",
               className: navbarClassName,
             },
             {
               icon: "dropdown",
               title: "Dropdown Select Option",
-              to: "/dropdown-select-option",
+              to: "/dropdowns/select-option",
               className: navbarClassName,
             },
           ]}
@@ -62,19 +62,19 @@ const Navbar = () => {
             {
               icon: "check_box",
               title: "Checkbox",
-              to: "/checkbox",
+              to: "/inputs/checkbox",
               className: navbarClassName,
             },
             {
               icon: "radio_button_checked",
               title: "Radio",
-              to: "/radio",
+              to: "/inputs/radio",
               className: navbarClassName,
             },
             {
               icon: "switches",
               title: "Switch",
-              to: "/switch",
+              to: "/inputs/switch",
               className: navbarClassName,
             },
           ]}

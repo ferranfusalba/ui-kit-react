@@ -14,38 +14,25 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as TooltipsImport } from './routes/tooltips'
-import { Route as TooltipsReactImport } from './routes/tooltips.react'
-import { Route as TooltipsPopoverImport } from './routes/tooltips.popover'
-import { Route as TooltipsCssImport } from './routes/tooltips.css'
+import { Route as DropdownsImport } from './routes/dropdowns'
+import { Route as TooltipsReactImport } from './routes/tooltips/react'
+import { Route as TooltipsPopoverImport } from './routes/tooltips/popover'
+import { Route as TooltipsCssImport } from './routes/tooltips/css'
+import { Route as DropdownsSingleOptionImport } from './routes/dropdowns/single-option'
+import { Route as DropdownsSelectOptionImport } from './routes/dropdowns/select-option'
+import { Route as DropdownsPositionsImport } from './routes/dropdowns/positions'
 
 // Create Virtual Routes
 
-const SwitchLazyImport = createFileRoute('/switch')()
-const RadioLazyImport = createFileRoute('/radio')()
 const Modal2LazyImport = createFileRoute('/modal-2')()
 const ModalLazyImport = createFileRoute('/modal')()
-const DropdownSingleOptionLazyImport = createFileRoute(
-  '/dropdown-single-option',
-)()
-const DropdownSelectOptionLazyImport = createFileRoute(
-  '/dropdown-select-option',
-)()
-const DropdownPositionsLazyImport = createFileRoute('/dropdown-positions')()
-const CheckboxLazyImport = createFileRoute('/checkbox')()
 const ButtonLazyImport = createFileRoute('/button')()
 const IndexLazyImport = createFileRoute('/')()
+const InputsSwitchLazyImport = createFileRoute('/inputs/switch')()
+const InputsRadioLazyImport = createFileRoute('/inputs/radio')()
+const InputsCheckboxLazyImport = createFileRoute('/inputs/checkbox')()
 
 // Create/Update Routes
-
-const SwitchLazyRoute = SwitchLazyImport.update({
-  path: '/switch',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/switch.lazy').then((d) => d.Route))
-
-const RadioLazyRoute = RadioLazyImport.update({
-  path: '/radio',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/radio.lazy').then((d) => d.Route))
 
 const Modal2LazyRoute = Modal2LazyImport.update({
   path: '/modal-2',
@@ -57,32 +44,6 @@ const ModalLazyRoute = ModalLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/modal.lazy').then((d) => d.Route))
 
-const DropdownSingleOptionLazyRoute = DropdownSingleOptionLazyImport.update({
-  path: '/dropdown-single-option',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() =>
-  import('./routes/dropdown-single-option.lazy').then((d) => d.Route),
-)
-
-const DropdownSelectOptionLazyRoute = DropdownSelectOptionLazyImport.update({
-  path: '/dropdown-select-option',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() =>
-  import('./routes/dropdown-select-option.lazy').then((d) => d.Route),
-)
-
-const DropdownPositionsLazyRoute = DropdownPositionsLazyImport.update({
-  path: '/dropdown-positions',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() =>
-  import('./routes/dropdown-positions.lazy').then((d) => d.Route),
-)
-
-const CheckboxLazyRoute = CheckboxLazyImport.update({
-  path: '/checkbox',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/checkbox.lazy').then((d) => d.Route))
-
 const ButtonLazyRoute = ButtonLazyImport.update({
   path: '/button',
   getParentRoute: () => rootRoute,
@@ -93,10 +54,32 @@ const TooltipsRoute = TooltipsImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const DropdownsRoute = DropdownsImport.update({
+  path: '/dropdowns',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+
+const InputsSwitchLazyRoute = InputsSwitchLazyImport.update({
+  path: '/inputs/switch',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/inputs/switch.lazy').then((d) => d.Route))
+
+const InputsRadioLazyRoute = InputsRadioLazyImport.update({
+  path: '/inputs/radio',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/inputs/radio.lazy').then((d) => d.Route))
+
+const InputsCheckboxLazyRoute = InputsCheckboxLazyImport.update({
+  path: '/inputs/checkbox',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() =>
+  import('./routes/inputs/checkbox.lazy').then((d) => d.Route),
+)
 
 const TooltipsReactRoute = TooltipsReactImport.update({
   path: '/react',
@@ -113,12 +96,31 @@ const TooltipsCssRoute = TooltipsCssImport.update({
   getParentRoute: () => TooltipsRoute,
 } as any)
 
+const DropdownsSingleOptionRoute = DropdownsSingleOptionImport.update({
+  path: '/single-option',
+  getParentRoute: () => DropdownsRoute,
+} as any)
+
+const DropdownsSelectOptionRoute = DropdownsSelectOptionImport.update({
+  path: '/select-option',
+  getParentRoute: () => DropdownsRoute,
+} as any)
+
+const DropdownsPositionsRoute = DropdownsPositionsImport.update({
+  path: '/positions',
+  getParentRoute: () => DropdownsRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
       preLoaderRoute: typeof IndexLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/dropdowns': {
+      preLoaderRoute: typeof DropdownsImport
       parentRoute: typeof rootRoute
     }
     '/tooltips': {
@@ -129,22 +131,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ButtonLazyImport
       parentRoute: typeof rootRoute
     }
-    '/checkbox': {
-      preLoaderRoute: typeof CheckboxLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/dropdown-positions': {
-      preLoaderRoute: typeof DropdownPositionsLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/dropdown-select-option': {
-      preLoaderRoute: typeof DropdownSelectOptionLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/dropdown-single-option': {
-      preLoaderRoute: typeof DropdownSingleOptionLazyImport
-      parentRoute: typeof rootRoute
-    }
     '/modal': {
       preLoaderRoute: typeof ModalLazyImport
       parentRoute: typeof rootRoute
@@ -153,13 +139,17 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Modal2LazyImport
       parentRoute: typeof rootRoute
     }
-    '/radio': {
-      preLoaderRoute: typeof RadioLazyImport
-      parentRoute: typeof rootRoute
+    '/dropdowns/positions': {
+      preLoaderRoute: typeof DropdownsPositionsImport
+      parentRoute: typeof DropdownsImport
     }
-    '/switch': {
-      preLoaderRoute: typeof SwitchLazyImport
-      parentRoute: typeof rootRoute
+    '/dropdowns/select-option': {
+      preLoaderRoute: typeof DropdownsSelectOptionImport
+      parentRoute: typeof DropdownsImport
+    }
+    '/dropdowns/single-option': {
+      preLoaderRoute: typeof DropdownsSingleOptionImport
+      parentRoute: typeof DropdownsImport
     }
     '/tooltips/css': {
       preLoaderRoute: typeof TooltipsCssImport
@@ -173,6 +163,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TooltipsReactImport
       parentRoute: typeof TooltipsImport
     }
+    '/inputs/checkbox': {
+      preLoaderRoute: typeof InputsCheckboxLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/inputs/radio': {
+      preLoaderRoute: typeof InputsRadioLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/inputs/switch': {
+      preLoaderRoute: typeof InputsSwitchLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -180,20 +182,22 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
+  DropdownsRoute.addChildren([
+    DropdownsPositionsRoute,
+    DropdownsSelectOptionRoute,
+    DropdownsSingleOptionRoute,
+  ]),
   TooltipsRoute.addChildren([
     TooltipsCssRoute,
     TooltipsPopoverRoute,
     TooltipsReactRoute,
   ]),
   ButtonLazyRoute,
-  CheckboxLazyRoute,
-  DropdownPositionsLazyRoute,
-  DropdownSelectOptionLazyRoute,
-  DropdownSingleOptionLazyRoute,
   ModalLazyRoute,
   Modal2LazyRoute,
-  RadioLazyRoute,
-  SwitchLazyRoute,
+  InputsCheckboxLazyRoute,
+  InputsRadioLazyRoute,
+  InputsSwitchLazyRoute,
 ])
 
 /* prettier-ignore-end */

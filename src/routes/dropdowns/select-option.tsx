@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { createLazyFileRoute } from "@tanstack/react-router";
-import DropdownSelectOption from "../components/dropdowns/select-option/DropdownSelectOption";
-import LayoutCenter from "../styles/layouts/LayoutCenter";
+import { createFileRoute } from "@tanstack/react-router";
+import DropdownSelectOption from "../../components/dropdowns/select-option/DropdownSelectOption";
+import LayoutCenter from "../../styles/layouts/LayoutCenter";
 
-export const Route = createLazyFileRoute("/dropdown-select-option")({
+export const Route = createFileRoute("/dropdowns/select-option")({
   component: DropdownSelectOptionPage,
 });
 

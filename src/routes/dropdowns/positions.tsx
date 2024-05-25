@@ -1,13 +1,13 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
-import ArrowLeft from "../../src/assets/icons/arrow--left.svg";
-import ArrowUp from "../../src/assets/icons/arrow--up.svg";
-import ArrowDown from "../../src/assets/icons/arrow--down.svg";
-import ArrowRight from "../../src/assets/icons/arrow--right.svg";
-import { useCounterStore } from "../store/store";
-import DropdownSingleOption from "../components/dropdowns/absolute-div/DropdownSingleOption";
-import LayoutCenter from "../styles/layouts/LayoutCenter";
+import { createFileRoute } from "@tanstack/react-router";
+import ArrowLeft from "../../../src/assets/icons/arrow--left.svg";
+import ArrowUp from "../../../src/assets/icons/arrow--up.svg";
+import ArrowDown from "../../../src/assets/icons/arrow--down.svg";
+import ArrowRight from "../../../src/assets/icons/arrow--right.svg";
+import { useCounterStore } from "../../store/store";
+import DropdownSingleOption from "../../components/dropdowns/absolute-div/DropdownSingleOption";
+import LayoutCenter from "../../styles/layouts/LayoutCenter";
 
-export const Route = createLazyFileRoute("/dropdown-positions")({
+export const Route = createFileRoute("/dropdowns/positions")({
   component: DropdownPage,
 });
 

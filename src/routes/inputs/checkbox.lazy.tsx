@@ -1,7 +1,7 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
-import Checkbox from "../components/inputs/checkbox/Checkbox";
+import { createFileRoute } from "@tanstack/react-router";
+import Checkbox from "../../components/inputs/checkbox/Checkbox";
 
-export const Route = createLazyFileRoute("/checkbox")({
+export const Route = createFileRoute("/inputs/checkbox")({
   component: CheckboxPage,
 });
 
