@@ -5,7 +5,7 @@ const DropdownSelectOption = ({
   onChange,
   placeholder,
 }: {
-  label: string;
+  label?: string;
   value: string;
   placeholder?: string;
   options: Array<{ label: string; value: string }>;

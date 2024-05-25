@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import DropdownSingleOption from "../../components/dropdowns/absolute-div/DropdownSingleOption";
 import LayoutCenter from "../../styles/layouts/LayoutCenter";
 import { useCounterStore } from "../../store/store";
+import { StyledTable } from "../../styles/components/Table";
 
 export const Route = createFileRoute("/dropdowns/single-option")({
   component: DropdownSingleOptionPage,
@@ -216,114 +217,158 @@ function DropdownSingleOptionPage() {
   return (
     <LayoutCenter>
       <>
-        <div className="container">
-          <div>Alert Type</div>
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            menuItems={alertOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-left"
-            menuItems={alertOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-center-x"
-            menuItems={alertOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-right"
-            menuItems={alertOptions}
-          />
-        </div>
-        <br />
-        <div className="container">
-          <div>Frequency</div>
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            menuItems={frequencyOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-left"
-            menuItems={frequencyOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-center-x"
-            menuItems={frequencyOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-right"
-            menuItems={frequencyOptions}
-          />
-        </div>
-        <br />
-        <div className="container">
-          <div>Every</div>
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            menuItems={everyOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-left"
-            menuItems={everyOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-center-x"
-            menuItems={everyOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-right"
-            menuItems={everyOptions}
-          />
-        </div>
-        <br />
-        <div className="container">
-          <div>At</div>
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            menuItems={atOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-left"
-            menuItems={atOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-center-x"
-            menuItems={atOptions}
-          />
-          <DropdownSingleOption
-            placeholder="Select an option"
-            direction="direction-bottom"
-            alignment="alignment-right"
-            menuItems={atOptions}
-          />
-        </div>
-        <br />
+        <StyledTable>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Default</th>
+                <th scope="col">Left</th>
+                <th scope="col">Center</th>
+                <th scope="col">Right</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Alert Type</th>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    menuItems={alertOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-left"
+                    menuItems={alertOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-center-x"
+                    menuItems={alertOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-right"
+                    menuItems={alertOptions}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Frequency</th>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    menuItems={frequencyOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-left"
+                    menuItems={frequencyOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-center-x"
+                    menuItems={frequencyOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-right"
+                    menuItems={frequencyOptions}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Every</th>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    menuItems={everyOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-left"
+                    menuItems={everyOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-center-x"
+                    menuItems={everyOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-right"
+                    menuItems={everyOptions}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">At</th>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    menuItems={atOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-left"
+                    menuItems={atOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-center-x"
+                    menuItems={atOptions}
+                  />
+                </td>
+                <td>
+                  <DropdownSingleOption
+                    placeholder="Select an option"
+                    direction="direction-bottom"
+                    alignment="alignment-right"
+                    menuItems={atOptions}
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </StyledTable>
+
         <p>Selected value: {value}</p>
       </>
     </LayoutCenter>

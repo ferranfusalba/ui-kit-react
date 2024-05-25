@@ -107,7 +107,8 @@ export const StyledDropdown = styled.div`
   .dropdown-menu {
     position: absolute;
     background-color: lightgrey;
-    min-width: 250px; // TODO: Adjust this
+    min-width: 160px;
+    width: max-content;
     z-index: 1;
     display: flex;
     flex-direction: column;

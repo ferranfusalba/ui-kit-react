@@ -6,6 +6,7 @@ const Radio = ({
   htmlFor,
   label,
   checked,
+  defaultChecked,
   disabled,
   readOnly,
 }: {
@@ -14,6 +15,7 @@ const Radio = ({
   htmlFor: string;
   label: string;
   checked?: boolean;
+  defaultChecked?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
 }) => {
@@ -26,6 +28,7 @@ const Radio = ({
           name="radio"
           value={value}
           checked={checked}
+          defaultChecked={defaultChecked}
           readOnly={readOnly}
           disabled={disabled}
         />
