@@ -3,9 +3,16 @@ import styled from "styled-components";
 export const StyledNavbar = styled.nav`
   display: flex;
   flex-direction: column;
-  border-right: 1px solid red;
   height: 100vh;
   width: 100%;
+
+  &.dark {
+    box-shadow: inset -38px 0px 37px -35px rgba(20, 20, 20, 1);
+  }
+
+  &.light {
+    box-shadow: inset -38px 0px 37px -35px rgba(166, 166, 166, 1);
+  }
 
   & > *:nth-child(1) {
     display: flex;

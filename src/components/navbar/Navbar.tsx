@@ -6,22 +6,16 @@ import NavbarSubMenu from "./sub-menu/NavbarSubMenu";
 import NavbarSectionTitle from "./section-title/NavbarSectionTitle";
 import ToggleChevronLeft from "../togglers/chevron-left/ToggleChevronLeft";
 import React from "react";
+import useDataTheme from "../../hooks/use-data-theme";
+import classNames from "classnames";
 
 const Navbar = () => {
   const isNavbarExpanded = useCoreStore((state) => state.isNavbarExpanded);
   const setNavbarExpanded = useCoreStore((state) => state.setNavbarExpanded);
   const navbarClassName = isNavbarExpanded ? "navbar-expanded" : "";
+  const theme = useCoreStore((state) => state.theme);
 
-  const setDarkMode = () => {
-    document.querySelector("body")?.setAttribute("data-theme", "dark");
-    localStorage.setItem("selectedTheme", "dark");
-  };
-  const setLightMode = () => {
-    document.querySelector("body")?.setAttribute("data-theme", "light");
-    localStorage.setItem("selectedTheme", "light");
-  };
-
-  const selectedThemeLS = localStorage.getItem("selectedTheme");
+  const { setDarkMode, setLightMode, selectedThemeLS } = useDataTheme();
 
   if (selectedThemeLS === "dark") {
     setDarkMode();
@@ -33,10 +27,10 @@ const Navbar = () => {
   };
 
   return (
-    <StyledNavbar className={navbarClassName}>
+    <StyledNavbar className={classNames(navbarClassName, theme)}>
       <div>
         <NavbarSectionTitle
-          title="UI"
+          title="ui kit react"
           isNavbarExpanded={isNavbarExpanded}
         ></NavbarSectionTitle>
         <button onClick={() => setNavbarExpanded(!isNavbarExpanded)}>
@@ -147,7 +141,7 @@ const Navbar = () => {
       </div>
       <div>
         <NavbarSectionTitle
-          title="Material Web"
+          title="material web"
           isNavbarExpanded={isNavbarExpanded}
         ></NavbarSectionTitle>
       </div>

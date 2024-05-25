@@ -31,6 +31,10 @@ body {
 
   background-color: var(--body-background);
   color: var(--body-color);
+
+  svg {
+    fill: var(--body-color);
+  }
 }
 
 .container {
