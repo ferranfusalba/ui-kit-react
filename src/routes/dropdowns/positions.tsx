@@ -35,7 +35,292 @@ function DropdownPage() {
   return (
     <LayoutCenter>
       <>
-        <div className="container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Left</th>
+              <th scope="col">Right</th>
+              <th scope="col">Up</th>
+              <th scope="col">Down</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Default</th>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropleft"
+                  direction="direction-left"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropright"
+                  direction="direction-right"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropup"
+                  direction="direction-top"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropdown"
+                  direction="direction-bottom"
+                  menuItems={menuItems}
+                />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">from Bottom</th>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropleft"
+                  direction="direction-left"
+                  alignment="alignment-bottom"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropright"
+                  direction="direction-right"
+                  alignment="alignment-bottom"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropup"
+                  direction="direction-top"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropdown"
+                  direction="direction-bottom"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">from Center-Y</th>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropleft"
+                  direction="direction-left"
+                  alignment="alignment-center-y"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropright"
+                  direction="direction-right"
+                  alignment="alignment-center-y"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropup"
+                  direction="direction-top"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropdown"
+                  direction="direction-bottom"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">frop Top (= d.)</th>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropleft"
+                  direction="direction-left"
+                  alignment="alignment-top"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropright"
+                  direction="direction-right"
+                  alignment="alignment-top"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropup"
+                  direction="direction-top"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropdown"
+                  direction="direction-bottom"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">from Left (= d.)</th>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropleft"
+                  direction="direction-left"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropright"
+                  direction="direction-right"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropup"
+                  direction="direction-top"
+                  alignment="alignment-left"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropdown"
+                  direction="direction-bottom"
+                  alignment="alignment-left"
+                  menuItems={menuItems}
+                />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">from Center-X</th>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropleft"
+                  direction="direction-left"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropright"
+                  direction="direction-right"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropup"
+                  direction="direction-top"
+                  alignment="alignment-center-x"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropdown"
+                  direction="direction-bottom"
+                  alignment="alignment-center-x"
+                  menuItems={menuItems}
+                />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">from Right</th>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropleft"
+                  direction="direction-left"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropright"
+                  direction="direction-right"
+                  menuItems={menuItems}
+                  disabled
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropup"
+                  direction="direction-top"
+                  alignment="alignment-right"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  placeholder="Dropdown"
+                  direction="direction-bottom"
+                  alignment="alignment-right"
+                  menuItems={menuItems}
+                />
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Icon</th>
+              <td>
+                <DropdownSingleOption
+                  triggerButton={<img src={ArrowLeft} alt="" />}
+                  direction="direction-left"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  triggerButton={<img src={ArrowRight} alt="" />}
+                  direction="direction-right"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  triggerButton={<img src={ArrowUp} alt="" />}
+                  direction="direction-top"
+                  menuItems={menuItems}
+                />
+              </td>
+              <td>
+                <DropdownSingleOption
+                  triggerButton={<img src={ArrowDown} alt="" />}
+                  direction="direction-bottom"
+                  menuItems={menuItems}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        {/* <div className="container">
           <div>Default</div>
           <DropdownSingleOption
             placeholder="Dropleft"
@@ -249,7 +534,7 @@ function DropdownPage() {
             direction="direction-right"
             menuItems={menuItems}
           />
-        </div>
+        </div> */}
       </>
     </LayoutCenter>
   );
