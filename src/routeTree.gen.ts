@@ -116,62 +116,107 @@ const DropdownsPositionsRoute = DropdownsPositionsImport.update({
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
     '/dropdowns': {
+      id: '/dropdowns'
+      path: '/dropdowns'
+      fullPath: '/dropdowns'
       preLoaderRoute: typeof DropdownsImport
       parentRoute: typeof rootRoute
     }
     '/tooltips': {
+      id: '/tooltips'
+      path: '/tooltips'
+      fullPath: '/tooltips'
       preLoaderRoute: typeof TooltipsImport
       parentRoute: typeof rootRoute
     }
     '/button': {
+      id: '/button'
+      path: '/button'
+      fullPath: '/button'
       preLoaderRoute: typeof ButtonLazyImport
       parentRoute: typeof rootRoute
     }
     '/modal': {
+      id: '/modal'
+      path: '/modal'
+      fullPath: '/modal'
       preLoaderRoute: typeof ModalLazyImport
       parentRoute: typeof rootRoute
     }
     '/modal-2': {
+      id: '/modal-2'
+      path: '/modal-2'
+      fullPath: '/modal-2'
       preLoaderRoute: typeof Modal2LazyImport
       parentRoute: typeof rootRoute
     }
     '/dropdowns/positions': {
+      id: '/dropdowns/positions'
+      path: '/positions'
+      fullPath: '/dropdowns/positions'
       preLoaderRoute: typeof DropdownsPositionsImport
       parentRoute: typeof DropdownsImport
     }
     '/dropdowns/select-option': {
+      id: '/dropdowns/select-option'
+      path: '/select-option'
+      fullPath: '/dropdowns/select-option'
       preLoaderRoute: typeof DropdownsSelectOptionImport
       parentRoute: typeof DropdownsImport
     }
     '/dropdowns/single-option': {
+      id: '/dropdowns/single-option'
+      path: '/single-option'
+      fullPath: '/dropdowns/single-option'
       preLoaderRoute: typeof DropdownsSingleOptionImport
       parentRoute: typeof DropdownsImport
     }
     '/tooltips/css': {
+      id: '/tooltips/css'
+      path: '/css'
+      fullPath: '/tooltips/css'
       preLoaderRoute: typeof TooltipsCssImport
       parentRoute: typeof TooltipsImport
     }
     '/tooltips/popover': {
+      id: '/tooltips/popover'
+      path: '/popover'
+      fullPath: '/tooltips/popover'
       preLoaderRoute: typeof TooltipsPopoverImport
       parentRoute: typeof TooltipsImport
     }
     '/tooltips/react': {
+      id: '/tooltips/react'
+      path: '/react'
+      fullPath: '/tooltips/react'
       preLoaderRoute: typeof TooltipsReactImport
       parentRoute: typeof TooltipsImport
     }
     '/inputs/checkbox': {
+      id: '/inputs/checkbox'
+      path: '/inputs/checkbox'
+      fullPath: '/inputs/checkbox'
       preLoaderRoute: typeof InputsCheckboxLazyImport
       parentRoute: typeof rootRoute
     }
     '/inputs/radio': {
+      id: '/inputs/radio'
+      path: '/inputs/radio'
+      fullPath: '/inputs/radio'
       preLoaderRoute: typeof InputsRadioLazyImport
       parentRoute: typeof rootRoute
     }
     '/inputs/switch': {
+      id: '/inputs/switch'
+      path: '/inputs/switch'
+      fullPath: '/inputs/switch'
       preLoaderRoute: typeof InputsSwitchLazyImport
       parentRoute: typeof rootRoute
     }
@@ -180,24 +225,106 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([
+export const routeTree = rootRoute.addChildren({
   IndexLazyRoute,
-  DropdownsRoute.addChildren([
+  DropdownsRoute: DropdownsRoute.addChildren({
     DropdownsPositionsRoute,
     DropdownsSelectOptionRoute,
     DropdownsSingleOptionRoute,
-  ]),
-  TooltipsRoute.addChildren([
+  }),
+  TooltipsRoute: TooltipsRoute.addChildren({
     TooltipsCssRoute,
     TooltipsPopoverRoute,
     TooltipsReactRoute,
-  ]),
+  }),
   ButtonLazyRoute,
   ModalLazyRoute,
   Modal2LazyRoute,
   InputsCheckboxLazyRoute,
   InputsRadioLazyRoute,
   InputsSwitchLazyRoute,
-])
+})
 
 /* prettier-ignore-end */
+
+/* ROUTE_MANIFEST_START
+{
+  "routes": {
+    "__root__": {
+      "filePath": "__root.tsx",
+      "children": [
+        "/",
+        "/dropdowns",
+        "/tooltips",
+        "/button",
+        "/modal",
+        "/modal-2",
+        "/inputs/checkbox",
+        "/inputs/radio",
+        "/inputs/switch"
+      ]
+    },
+    "/": {
+      "filePath": "index.lazy.tsx"
+    },
+    "/dropdowns": {
+      "filePath": "dropdowns.tsx",
+      "children": [
+        "/dropdowns/positions",
+        "/dropdowns/select-option",
+        "/dropdowns/single-option"
+      ]
+    },
+    "/tooltips": {
+      "filePath": "tooltips.tsx",
+      "children": [
+        "/tooltips/css",
+        "/tooltips/popover",
+        "/tooltips/react"
+      ]
+    },
+    "/button": {
+      "filePath": "button.lazy.tsx"
+    },
+    "/modal": {
+      "filePath": "modal.lazy.tsx"
+    },
+    "/modal-2": {
+      "filePath": "modal-2.lazy.tsx"
+    },
+    "/dropdowns/positions": {
+      "filePath": "dropdowns/positions.tsx",
+      "parent": "/dropdowns"
+    },
+    "/dropdowns/select-option": {
+      "filePath": "dropdowns/select-option.tsx",
+      "parent": "/dropdowns"
+    },
+    "/dropdowns/single-option": {
+      "filePath": "dropdowns/single-option.tsx",
+      "parent": "/dropdowns"
+    },
+    "/tooltips/css": {
+      "filePath": "tooltips/css.tsx",
+      "parent": "/tooltips"
+    },
+    "/tooltips/popover": {
+      "filePath": "tooltips/popover.tsx",
+      "parent": "/tooltips"
+    },
+    "/tooltips/react": {
+      "filePath": "tooltips/react.tsx",
+      "parent": "/tooltips"
+    },
+    "/inputs/checkbox": {
+      "filePath": "inputs/checkbox.lazy.tsx"
+    },
+    "/inputs/radio": {
+      "filePath": "inputs/radio.lazy.tsx"
+    },
+    "/inputs/switch": {
+      "filePath": "inputs/switch.lazy.tsx"
+    }
+  }
+}
+ROUTE_MANIFEST_END */

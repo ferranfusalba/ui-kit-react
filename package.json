@@ -15,14 +15,14 @@
     "@tanstack/router-devtools": "^1.31.1",
     "@tanstack/router-vite-plugin": "^1.30.0",
     "classnames": "^2.5.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "19.0.0-rc-9d4fba0788-20240530",
+    "react-dom": "19.0.0-rc-9d4fba0788-20240530",
     "styled-components": "^6.1.8",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",
