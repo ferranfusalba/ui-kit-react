@@ -3,10 +3,11 @@ import styled from "styled-components";
 // Dropdown Wrapper
 export const StyledDropdown = styled.div`
   position: relative;
+  width: max-content; // Solution for dropdowns of different widths at same column
 `;
 
 // Button Trigger
-export const StyledDropdownButton = styled.button`
+export const StyledDropdownButton = styled.button<{ width?: string }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,8 +18,8 @@ export const StyledDropdownButton = styled.button`
   transition: all 0.15s ease-in-out;
   height: 32px;
   padding: 4px 10px;
-  width: 160px; // TODO: Review text-overflow behavior
-  // min-width: 160px;
+  width: ${(props) =>
+    props.width ? props.width : "160px"}; // TODO: Review text-overflow behavior
 
   span {
     white-space: nowrap;
@@ -108,12 +109,15 @@ export const StyledDropdownButton = styled.button`
 `;
 
 // Menu Expansion
-export const StyledDropdownMenu = styled.div<{ height?: string }>`
+export const StyledDropdownMenu = styled.div<{
+  height?: string;
+  width?: string;
+}>`
   &.dropdown-menu {
     position: absolute;
     background-color: lightgrey;
-    min-width: 160px;
-    width: max-content;
+    min-width: ${(props) => (props.width ? props.width : "160px")};
+    width: ${(props) => (props.width ? props.width : "max-content")};
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -226,12 +230,12 @@ export const StyledDropdownMenu = styled.div<{ height?: string }>`
 `;
 
 // Value to select
-export const StyledDropdownMenuItem = styled.div`
+export const StyledDropdownMenuItem = styled.div<{ width?: string }>`
   &.menu-item {
     background-color: white;
     color: black;
     border: none;
-    width: 100%;
+    width: ${(props) => (props.width ? props.width : "100%")};
     cursor: pointer;
     font-size: 14px;
     font-family: "Roboto";

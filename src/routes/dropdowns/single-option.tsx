@@ -365,6 +365,7 @@ function DropdownSingleOptionPage() {
                     direction="direction-bottom"
                     alignment="alignment-right"
                     menuItems={atOptions}
+                    width="200px"
                   />
                 </td>
               </tr>
