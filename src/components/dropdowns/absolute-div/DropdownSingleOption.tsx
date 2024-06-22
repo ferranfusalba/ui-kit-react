@@ -1,4 +1,9 @@
-import { StyledDropdown } from "./DropdownSingleOption.styles";
+import {
+  StyledDropdown,
+  StyledDropdownButton,
+  StyledDropdownMenu,
+  StyledDropdownMenuItem,
+} from "./DropdownSingleOption.styles";
 import useOpenDropdown from "../../../hooks/use-open-dropdown";
 import OutsideClickWrapper from "../../../hooks/use-outside-click-wrapper";
 import { useCounterStore } from "../../../store/store";
@@ -48,8 +53,8 @@ const DropdownSingleOption = ({
 
   return (
     <OutsideClickWrapper callback={handleClickOutside}>
-      <StyledDropdown height={height}>
-        <button
+      <StyledDropdown>
+        <StyledDropdownButton
           onClick={handleOpen}
           disabled={disabled}
           className={classNames(direction, { open: open })}
@@ -63,24 +68,25 @@ const DropdownSingleOption = ({
             src={ChevronDown}
             className={classNames("button", direction, { open: open })}
           ></img>
-        </button>
+        </StyledDropdownButton>
 
         {open ? (
-          <div
+          <StyledDropdownMenu
+            height={height}
             className={classNames("dropdown-menu", direction, alignment, {
               [`height-${height}`]: height,
             })}
           >
             {menuItems.map((menu, index) => (
-              <div
+              <StyledDropdownMenuItem
                 onClick={() => handleOption(menu)}
                 key={index}
                 className="menu-item"
               >
                 {menu.label}
-              </div>
+              </StyledDropdownMenuItem>
             ))}
-          </div>
+          </StyledDropdownMenu>
         ) : null}
       </StyledDropdown>
     </OutsideClickWrapper>
