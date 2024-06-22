@@ -337,6 +337,7 @@ function DropdownSingleOptionPage() {
                   <DropdownSingleOption
                     placeholder="Select an option"
                     direction="direction-bottom"
+                    height="150px"
                     menuItems={atOptions}
                   />
                 </td>
@@ -345,6 +346,7 @@ function DropdownSingleOptionPage() {
                     placeholder="Select an option"
                     direction="direction-bottom"
                     alignment="alignment-left"
+                    height="250px"
                     menuItems={atOptions}
                   />
                 </td>
@@ -353,6 +355,7 @@ function DropdownSingleOptionPage() {
                     placeholder="Select an option"
                     direction="direction-bottom"
                     alignment="alignment-center-x"
+                    height="350px"
                     menuItems={atOptions}
                   />
                 </td>

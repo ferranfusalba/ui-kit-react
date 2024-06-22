@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledDropdown = styled.div`
+export const StyledDropdown = styled.div<{ height?: string }>`
   position: relative;
 
   button {
@@ -225,6 +225,11 @@ export const StyledDropdown = styled.div`
       .menu-item {
         justify-content: end;
       }
+    }
+
+    &.height-${(props) => props.height} {
+      height: ${(props) => props.height};
+      overflow: scroll;
     }
   }
 `;

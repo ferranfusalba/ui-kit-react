@@ -17,6 +17,7 @@ const DropdownSingleOption = ({
   placeholder,
   direction = "bottom",
   alignment,
+  height,
   menuItems,
   disabled = false,
 }: {
@@ -24,6 +25,7 @@ const DropdownSingleOption = ({
   placeholder?: string;
   direction?: string;
   alignment?: string;
+  height?: string;
   menuItems: Array<MenuItem>;
   disabled?: boolean;
 }) => {
@@ -46,7 +48,7 @@ const DropdownSingleOption = ({
 
   return (
     <OutsideClickWrapper callback={handleClickOutside}>
-      <StyledDropdown>
+      <StyledDropdown height={height}>
         <button
           onClick={handleOpen}
           disabled={disabled}
@@ -64,7 +66,11 @@ const DropdownSingleOption = ({
         </button>
 
         {open ? (
-          <div className={classNames("dropdown-menu", direction, alignment)}>
+          <div
+            className={classNames("dropdown-menu", direction, alignment, {
+              [`height-${height}`]: height,
+            })}
+          >
             {menuItems.map((menu, index) => (
               <div
                 onClick={() => handleOption(menu)}
