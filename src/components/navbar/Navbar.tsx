@@ -38,103 +38,87 @@ const Navbar = () => {
         </button>
       </div>
       <div>
-        <NavbarItem
-          icon="home"
-          title="Home"
-          to="/"
-          className={navbarClassName}
-        />
+        <NavbarItem icon="home" title="Home" to="/" />
         <NavbarSubMenu
           icon="dropdown"
           title="Dropdowns"
-          className={navbarClassName}
+          path="/dropdowns"
           items={[
             {
               icon: "dropdown",
               title: "Dropdown (positions)",
               to: "/dropdowns/positions",
-              className: navbarClassName,
             },
             {
               icon: "dropdown",
               title: "Dropdown Single Option",
               to: "/dropdowns/single-option",
-              className: navbarClassName,
             },
             {
               icon: "dropdown",
               title: "Dropdown Select Option",
               to: "/dropdowns/select-option",
-              className: navbarClassName,
             },
           ]}
         ></NavbarSubMenu>
         <NavbarSubMenu
           icon="input"
           title="Inputs"
-          className={navbarClassName}
+          path="/inputs"
           items={[
             {
               icon: "check_box",
               title: "Checkbox",
               to: "/inputs/checkbox",
-              className: navbarClassName,
             },
             {
               icon: "radio_button_checked",
               title: "Radio",
               to: "/inputs/radio",
-              className: navbarClassName,
             },
             {
               icon: "switches",
               title: "Switch",
               to: "/inputs/switch",
-              className: navbarClassName,
             },
           ]}
         ></NavbarSubMenu>
         <NavbarSubMenu
           icon="wysiwyg"
           title="Modals"
-          className={navbarClassName}
+          path="/modal"
           items={[
             {
               icon: "check_box",
               title: "Modal dialog 1",
               to: "/modal",
-              className: navbarClassName,
             },
             {
               icon: "check_box",
               title: "Modal dialog 2",
               to: "/modal-2",
-              className: navbarClassName,
             },
           ]}
         ></NavbarSubMenu>
         <NavbarSubMenu
           icon="tooltip"
           title="Tooltips"
-          className={navbarClassName}
+          path="/tooltips"
           items={[
             {
               icon: "tooltip",
               title: "React Tooltip",
               to: "/tooltips/react",
-              className: navbarClassName,
             },
             {
               icon: "tooltip",
               title: "CSS Tooltip",
               to: "/tooltips/css",
-              className: navbarClassName,
             },
             {
               icon: "tooltip",
               title: "Popover Tooltip",
               to: "/tooltips/popover",
-              className: navbarClassName,
             },
           ]}
         ></NavbarSubMenu>
@@ -146,12 +130,7 @@ const Navbar = () => {
         ></NavbarSectionTitle>
       </div>
       <div>
-        <NavbarItem
-          icon="buttons_alt"
-          title="Button"
-          to="/button"
-          className={navbarClassName}
-        />
+        <NavbarItem icon="buttons_alt" title="Button" to="/button" />
       </div>
       {isNavbarExpanded && (
         <div>

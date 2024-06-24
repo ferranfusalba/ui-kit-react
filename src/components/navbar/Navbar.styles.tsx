@@ -30,4 +30,13 @@ export const StyledNavbar = styled.nav`
       align-items: center;
     }
   }
+
+  &:not(.navbar-expanded) {
+    span.section-title {
+      display: none;
+    }
+    div.section-toggler {
+      display: none;
+    }
+  }
 `;

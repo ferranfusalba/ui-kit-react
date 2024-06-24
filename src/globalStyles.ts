@@ -54,7 +54,7 @@ body {
     transition: 0.3s ease-in-out;
 
     &:not(.navbar-expanded) {
-      width: 80px;
+      width: 60px;
     }
     
     &.navbar-expanded {
@@ -64,7 +64,7 @@ body {
 
   main {
     &:not(.navbar-expanded) {
-      width: calc(100vw - 80px);
+      width: calc(100vw - 60px);
     }
     
     &.navbar-expanded {

@@ -1,22 +1,32 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { StyledNavbarItem } from "./NavbarItem.styles";
-import ListItem from "../../list-item/ListItem";
+import NavbarAsideActive from "../aside-active/NavbarAsideActive";
 
 const NavbarItem = ({
   icon,
   title,
   to,
-  className,
+  withAside = true,
 }: {
   icon: string;
   title: string;
-  to: string;
-  className: string;
+  to?: string;
+  withAside?: boolean;
 }) => {
+  const router = useRouterState();
+  const active = to === router.location.pathname;
+
   return (
     <StyledNavbarItem>
+      {withAside ? (
+        <NavbarAsideActive
+          className={active ? "active" : ""}
+        ></NavbarAsideActive>
+      ) : null}
+
+      <picture className="material-symbols-outlined">{icon}</picture>
       <Link to={to}>
-        <ListItem className={className} icon={icon} title={title}></ListItem>
+        <span className="section-title">{title}</span>
       </Link>
     </StyledNavbarItem>
   );
