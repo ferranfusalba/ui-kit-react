@@ -1,4 +1,4 @@
-import { StyledSidebar } from "./Sidebar.styles";
+import { StyledSidebar, StyledSidebarItemSection } from "./Sidebar.styles";
 import { useCoreStore } from "../../store/store";
 import SidebarItem from "./item/SidebarItem";
 import Switch from "../inputs/switch/Switch";
@@ -9,6 +9,7 @@ import useDataTheme from "../../hooks/use-data-theme";
 import classNames from "classnames";
 import SidebarSectionTitleToggler from "./section-title/section-title-toggler/SidebarSectionTitleToggler";
 import SidebarSectionTitleSeparator from "./section-title/section-title-separator/SidebarSectionTitleSeparator";
+import NewSidebarItem from "./new-item/NewSidebarItem";
 
 const Sidebar = () => {
   const isSidebarExpanded = useCoreStore((state) => state.isSidebarExpanded);
@@ -27,6 +28,10 @@ const Sidebar = () => {
     else setLightMode();
   };
 
+  const isCurrentPath = (path: string): boolean =>
+    window.location.pathname.includes(path);
+  const isHome = window.location.pathname === "/";
+
   return (
     <StyledSidebar className={classNames(sidebarClassName, theme)}>
       <SidebarSectionTitleToggler
@@ -35,6 +40,15 @@ const Sidebar = () => {
         collapsed={!isSidebarExpanded}
         visible={true}
       />
+      <StyledSidebarItemSection>
+        <NewSidebarItem
+          title="Home"
+          // icon={}
+          to="/"
+          active={isHome}
+          visible
+        />
+      </StyledSidebarItemSection>
 
       <div>
         <SidebarItem icon="home" title="Home" to="/" />

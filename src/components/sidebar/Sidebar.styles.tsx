@@ -40,3 +40,9 @@ export const StyledSidebar = styled.nav`
     }
   }
 `;
+
+export const StyledSidebarItemSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`;
