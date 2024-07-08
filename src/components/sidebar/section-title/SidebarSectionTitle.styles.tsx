@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const StyledNavbarSectionTitle = styled.div`
+export const StyledSidebarSectionTitle = styled.div`
   font-variant: small-caps;
 `;

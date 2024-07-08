@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledNavbar = styled.nav`
+export const StyledSidebar = styled.nav`
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -31,7 +31,7 @@ export const StyledNavbar = styled.nav`
     }
   }
 
-  &:not(.navbar-expanded) {
+  &:not(.sidebar-expanded) {
     span.section-title {
       display: none;
     }

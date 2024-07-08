@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledNavbarAsideActive = styled.aside`
+export const StyledSidebarAsideActive = styled.aside`
   height: 24px;
   width: 4px;
 

@@ -1,17 +1,17 @@
-import { StyledNavbarSectionTitle } from "./SidebarSectionTitle.styles";
+import { StyledSidebarSectionTitle } from "./SidebarSectionTitle.styles";
 
-const NavbarSectionTitle = ({
+const SidebarSidebarTitle = ({
   title,
-  isNavbarExpanded,
+  isSidebarExpanded,
 }: {
   title: string;
-  isNavbarExpanded?: boolean;
+  isSidebarExpanded?: boolean;
 }) => {
   return (
-    <StyledNavbarSectionTitle>
-      {isNavbarExpanded ? title : "-"}
-    </StyledNavbarSectionTitle>
+    <StyledSidebarSectionTitle>
+      {isSidebarExpanded ? title : "-"}
+    </StyledSidebarSectionTitle>
   );
 };
 
-export default NavbarSectionTitle;
+export default SidebarSidebarTitle;

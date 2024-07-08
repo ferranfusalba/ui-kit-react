@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledNavbarSubMenu = styled.div`
+export const StyledSidebarSubMenu = styled.div`
   .toggle-section {
     display: flex;
     flex-direction: row;

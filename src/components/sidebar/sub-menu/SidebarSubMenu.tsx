@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { StyledNavbarSubMenu } from "./SidebarSubMenu.styles";
-import NavbarItem from "../item/SidebarItem";
+import { StyledSidebarSubMenu } from "./SidebarSubMenu.styles";
+import SidebarItem from "../item/SidebarItem";
 import ToggleChevronDown from "../../togglers/chevron-down/ToggleChevronDown";
 import { useCoreStore } from "../../../store/store";
-import NavbarAsideActive from "../aside-active/SidebarAsideActive";
+import SidebarAsideActive from "../aside-active/SidebarAsideActive";
 import { useRouterState } from "@tanstack/react-router";
 
-const NavbarMenuItem = ({
+const SidebarSubMenu = ({
   icon,
   title,
   items,
@@ -22,50 +22,54 @@ const NavbarMenuItem = ({
   }>;
 }) => {
   const [open, setOpen] = useState(false);
-  const isNavbarExpanded = useCoreStore((state) => state.isNavbarExpanded);
+  const isSidebarExpanded = useCoreStore((state) => state.isSidebarExpanded);
 
   const handleOpen = () => {
     setOpen(!open);
   };
 
-  // Close all submenus when contracting navbar - TODO: Enhance this logic (leave selected submenu open?)
+  // Close all submenus when contracting sidebar - TODO: Enhance this logic (leave selected submenu open?)
   useEffect(() => {
-    if (!isNavbarExpanded) {
+    if (!isSidebarExpanded) {
       setOpen(false);
     }
 
     // TODO: Reopen when expanded & is submenu item
-    // if(!isNavbarExpanded) {
+    // if(!isSidebarExpanded) {
     //   setOpen(true)
     // }
-  }, [isNavbarExpanded]);
+  }, [isSidebarExpanded]);
 
   const router = useRouterState();
   const active = router.location.pathname.includes(path);
 
   return (
-    <StyledNavbarSubMenu>
+    <StyledSidebarSubMenu>
       <div
         className="toggle-section"
-        onClick={isNavbarExpanded ? handleOpen : undefined} // TODO: Enhance this logic ?
+        onClick={isSidebarExpanded ? handleOpen : undefined} // TODO: Enhance this logic ?
       >
         <div style={{ display: "flex" }}>
-          <NavbarAsideActive
+          <SidebarAsideActive
             className={active ? "active" : ""}
-          ></NavbarAsideActive>
-          <NavbarItem icon={icon} title={title} withAside={false}></NavbarItem>
+          ></SidebarAsideActive>
+          <SidebarItem
+            icon={icon}
+            title={title}
+            withAside={false}
+          ></SidebarItem>
         </div>
 
         <ToggleChevronDown
           open={open}
-          onClick={!isNavbarExpanded ? handleOpen : undefined} // TODO: Enhance this logic ?
+          onClick={!isSidebarExpanded ? handleOpen : undefined} // TODO: Enhance this logic ?
         ></ToggleChevronDown>
       </div>
 
       <div className="items-section">
         {open
           ? items.map((item) => (
-              <NavbarItem
+              <SidebarItem
                 icon={item.icon}
                 title={item.title}
                 to={item.to}
@@ -74,8 +78,8 @@ const NavbarMenuItem = ({
             ))
           : null}
       </div>
-    </StyledNavbarSubMenu>
+    </StyledSidebarSubMenu>
   );
 };
 
-export default NavbarMenuItem;
+export default SidebarSubMenu;

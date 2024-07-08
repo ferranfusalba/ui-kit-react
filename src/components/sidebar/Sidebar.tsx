@@ -1,18 +1,18 @@
-import { StyledNavbar } from "./Sidebar.styles";
+import { StyledSidebar } from "./Sidebar.styles";
 import { useCoreStore } from "../../store/store";
-import NavbarItem from "./item/SidebarItem";
+import SidebarItem from "./item/SidebarItem";
 import Switch from "../inputs/switch/Switch";
-import NavbarSubMenu from "./sub-menu/SidebarSubMenu";
-import NavbarSectionTitle from "./section-title/SidebarSectionTitle";
+import SidebarSubMenu from "./sub-menu/SidebarSubMenu";
+import SidebarSectionTitle from "./section-title/SidebarSectionTitle";
 import ToggleChevronLeft from "../togglers/chevron-left/ToggleChevronLeft";
 import React from "react";
 import useDataTheme from "../../hooks/use-data-theme";
 import classNames from "classnames";
 
-const Navbar = () => {
-  const isNavbarExpanded = useCoreStore((state) => state.isNavbarExpanded);
-  const setNavbarExpanded = useCoreStore((state) => state.setNavbarExpanded);
-  const navbarClassName = isNavbarExpanded ? "navbar-expanded" : "";
+const Sidebar = () => {
+  const isSidebarExpanded = useCoreStore((state) => state.isSidebarExpanded);
+  const setSidebarExpanded = useCoreStore((state) => state.setSidebarExpanded);
+  const sidebarClassName = isSidebarExpanded ? "sidebar-expanded" : "";
   const theme = useCoreStore((state) => state.theme);
 
   const { setDarkMode, setLightMode, selectedThemeLS } = useDataTheme();
@@ -27,19 +27,19 @@ const Navbar = () => {
   };
 
   return (
-    <StyledNavbar className={classNames(navbarClassName, theme)}>
+    <StyledSidebar className={classNames(sidebarClassName, theme)}>
       <div>
-        <NavbarSectionTitle
+        <SidebarSectionTitle
           title="ui kit react"
-          isNavbarExpanded={isNavbarExpanded}
-        ></NavbarSectionTitle>
-        <button onClick={() => setNavbarExpanded(!isNavbarExpanded)}>
-          <ToggleChevronLeft open={!isNavbarExpanded}></ToggleChevronLeft>
+          isSidebarExpanded={isSidebarExpanded}
+        ></SidebarSectionTitle>
+        <button onClick={() => setSidebarExpanded(!isSidebarExpanded)}>
+          <ToggleChevronLeft open={!isSidebarExpanded}></ToggleChevronLeft>
         </button>
       </div>
       <div>
-        <NavbarItem icon="home" title="Home" to="/" />
-        <NavbarSubMenu
+        <SidebarItem icon="home" title="Home" to="/" />
+        <SidebarSubMenu
           icon="dropdown"
           title="Dropdowns"
           path="/dropdowns"
@@ -60,8 +60,8 @@ const Navbar = () => {
               to: "/dropdowns/select-option",
             },
           ]}
-        ></NavbarSubMenu>
-        <NavbarSubMenu
+        ></SidebarSubMenu>
+        <SidebarSubMenu
           icon="input"
           title="Inputs"
           path="/inputs"
@@ -82,8 +82,8 @@ const Navbar = () => {
               to: "/inputs/switch",
             },
           ]}
-        ></NavbarSubMenu>
-        <NavbarSubMenu
+        ></SidebarSubMenu>
+        <SidebarSubMenu
           icon="wysiwyg"
           title="Modals"
           path="/modal"
@@ -99,8 +99,8 @@ const Navbar = () => {
               to: "/modal-2",
             },
           ]}
-        ></NavbarSubMenu>
-        <NavbarSubMenu
+        ></SidebarSubMenu>
+        <SidebarSubMenu
           icon="tooltip"
           title="Tooltips"
           path="/tooltips"
@@ -121,18 +121,18 @@ const Navbar = () => {
               to: "/tooltips/popover",
             },
           ]}
-        ></NavbarSubMenu>
+        ></SidebarSubMenu>
       </div>
       <div>
-        <NavbarSectionTitle
+        <SidebarSectionTitle
           title="material web"
-          isNavbarExpanded={isNavbarExpanded}
-        ></NavbarSectionTitle>
+          isSidebarExpanded={isSidebarExpanded}
+        ></SidebarSectionTitle>
       </div>
       <div>
-        <NavbarItem icon="buttons_alt" title="Button" to="/button" />
+        <SidebarItem icon="buttons_alt" title="Button" to="/button" />
       </div>
-      {isNavbarExpanded && (
+      {isSidebarExpanded && (
         <div>
           <p>{import.meta.env.MODE}</p>
           <Switch
@@ -144,7 +144,7 @@ const Navbar = () => {
           ></Switch>
         </div>
       )}
-    </StyledNavbar>
+    </StyledSidebar>
   );
 };
-export default Navbar;
+export default Sidebar;

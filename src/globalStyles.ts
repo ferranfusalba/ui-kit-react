@@ -53,21 +53,21 @@ body {
   nav {
     transition: 0.3s ease-in-out;
 
-    &:not(.navbar-expanded) {
+    &:not(.sidebar-expanded) {
       width: 60px;
     }
     
-    &.navbar-expanded {
+    &.sidebar-expanded {
       width: 270px;
     }
   }
 
   main {
-    &:not(.navbar-expanded) {
+    &:not(.sidebar-expanded) {
       width: calc(100vw - 60px);
     }
     
-    &.navbar-expanded {
+    &.sidebar-expanded {
       width: calc(100vw - 270px);
     }
   }

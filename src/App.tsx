@@ -1,15 +1,15 @@
 import { Outlet } from "@tanstack/react-router";
-import Navbar from "./components/sidebar/Sidebar";
+import Sidebar from "./components/sidebar/Sidebar";
 import { useCoreStore } from "./store/store";
 
 function App() {
-  const isNavbarExpanded = useCoreStore((state) => state.isNavbarExpanded);
+  const isSidebarExpanded = useCoreStore((state) => state.isSidebarExpanded);
 
   return (
     <>
       <div className="main-app">
-        <Navbar />
-        <main className={isNavbarExpanded ? "navbar-expanded" : ""}>
+        <Sidebar />
+        <main className={isSidebarExpanded ? "sidebar-expanded" : ""}>
           <Outlet />
         </main>
       </div>

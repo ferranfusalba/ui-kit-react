@@ -1,8 +1,8 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { StyledNavbarItem } from "./SidebarItem.styles";
-import NavbarAsideActive from "../aside-active/SidebarAsideActive";
+import { StyledSidebarItem } from "./SidebarItem.styles";
+import SidebarAsideActive from "../aside-active/SidebarAsideActive";
 
-const NavbarItem = ({
+const SidebarItem = ({
   icon,
   title,
   to,
@@ -17,19 +17,19 @@ const NavbarItem = ({
   const active = to === router.location.pathname;
 
   return (
-    <StyledNavbarItem>
+    <StyledSidebarItem>
       {withAside ? (
-        <NavbarAsideActive
+        <SidebarAsideActive
           className={active ? "active" : ""}
-        ></NavbarAsideActive>
+        ></SidebarAsideActive>
       ) : null}
 
       <picture className="material-symbols-outlined">{icon}</picture>
       <Link to={to}>
         <span className="section-title">{title}</span>
       </Link>
-    </StyledNavbarItem>
+    </StyledSidebarItem>
   );
 };
 
-export default NavbarItem;
+export default SidebarItem;

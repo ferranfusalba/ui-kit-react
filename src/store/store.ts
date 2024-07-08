@@ -9,8 +9,8 @@ interface CounterStore {
 }
 
 interface CoreStore {
-  isNavbarExpanded: boolean;
-  setNavbarExpanded: (value: boolean) => void;
+  isSidebarExpanded: boolean;
+  setSidebarExpanded: (value: boolean) => void;
   theme: string;
   setTheme: (value: string) => void;
 }
@@ -30,9 +30,9 @@ export const useCounterStore = create<CounterStore>((set) => ({
 }));
 
 export const useCoreStore = create<CoreStore>((set) => ({
-  isNavbarExpanded: true,
-  setNavbarExpanded: (value: boolean) => {
-    set({ isNavbarExpanded: value });
+  isSidebarExpanded: true,
+  setSidebarExpanded: (value: boolean) => {
+    set({ isSidebarExpanded: value });
   },
   theme: localStorage.getItem("selectedTheme") || "light", // TODO: Review this
   setTheme: (value: string) => {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledNavbarItem = styled.div`
+export const StyledSidebarItem = styled.div`
   display: flex;
 
   picture,

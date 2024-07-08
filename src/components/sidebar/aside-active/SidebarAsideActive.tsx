@@ -1,9 +1,9 @@
-import { StyledNavbarAsideActive } from "./SidebarAsideActive.styles";
+import { StyledSidebarAsideActive } from "./SidebarAsideActive.styles";
 
-const NavbarAsideActive = ({ className }: { className: string }) => {
+const SidebarAsideActive = ({ className }: { className: string }) => {
   return (
-    <StyledNavbarAsideActive className={className}></StyledNavbarAsideActive>
+    <StyledSidebarAsideActive className={className}></StyledSidebarAsideActive>
   );
 };
 
-export default NavbarAsideActive;
+export default SidebarAsideActive;
