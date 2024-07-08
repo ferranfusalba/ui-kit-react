@@ -1,4 +1,3 @@
-import React from "react";
 import { SvgElementProps } from "../../types/SvgElement.types";
 
 const CaretDownIcon = ({
