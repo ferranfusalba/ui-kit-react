@@ -3,11 +3,12 @@ import { useCoreStore } from "../../store/store";
 import SidebarItem from "./item/SidebarItem";
 import Switch from "../inputs/switch/Switch";
 import SidebarSubMenu from "./sub-menu/SidebarSubMenu";
-import SidebarSectionTitle from "./section-title/SidebarSectionTitle";
-import ToggleChevronLeft from "../togglers/chevron-left/ToggleChevronLeft";
+// import ToggleChevronLeft from "../togglers/chevron-left/ToggleChevronLeft";
 import React from "react";
 import useDataTheme from "../../hooks/use-data-theme";
 import classNames from "classnames";
+import SidebarSectionTitleToggler from "./section-title/section-title-toggler/SidebarSectionTitleToggler";
+import SidebarSectionTitleSeparator from "./section-title/section-title-separator/SidebarSectionTitleSeparator";
 
 const Sidebar = () => {
   const isSidebarExpanded = useCoreStore((state) => state.isSidebarExpanded);
@@ -28,15 +29,13 @@ const Sidebar = () => {
 
   return (
     <StyledSidebar className={classNames(sidebarClassName, theme)}>
-      <div>
-        <SidebarSectionTitle
-          title="ui kit react"
-          isSidebarExpanded={isSidebarExpanded}
-        ></SidebarSectionTitle>
-        <button onClick={() => setSidebarExpanded(!isSidebarExpanded)}>
-          <ToggleChevronLeft open={!isSidebarExpanded}></ToggleChevronLeft>
-        </button>
-      </div>
+      <SidebarSectionTitleToggler
+        title="UI Kit React"
+        onClick={() => setSidebarExpanded(!isSidebarExpanded)}
+        collapsed={!isSidebarExpanded}
+        visible={true}
+      />
+
       <div>
         <SidebarItem icon="home" title="Home" to="/" />
         <SidebarSubMenu
@@ -123,12 +122,12 @@ const Sidebar = () => {
           ]}
         ></SidebarSubMenu>
       </div>
-      <div>
-        <SidebarSectionTitle
-          title="material web"
-          isSidebarExpanded={isSidebarExpanded}
-        ></SidebarSectionTitle>
-      </div>
+
+      <SidebarSectionTitleSeparator
+        title="Material Web"
+        collapsed={!isSidebarExpanded}
+      />
+
       <div>
         <SidebarItem icon="buttons_alt" title="Button" to="/button" />
       </div>
