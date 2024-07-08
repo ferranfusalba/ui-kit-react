@@ -1,5 +1,5 @@
 import { Outlet } from "@tanstack/react-router";
-import Navbar from "./components/navbar/Navbar";
+import Navbar from "./components/sidebar/Sidebar";
 import { useCoreStore } from "./store/store";
 
 function App() {

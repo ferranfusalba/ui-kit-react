@@ -1,4 +1,4 @@
-import { StyledNavbarAsideActive } from "./NavbarAsideActive.styles";
+import { StyledNavbarAsideActive } from "./SidebarAsideActive.styles";
 
 const NavbarAsideActive = ({ className }: { className: string }) => {
   return (

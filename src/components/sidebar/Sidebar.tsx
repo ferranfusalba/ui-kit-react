@@ -1,9 +1,9 @@
-import { StyledNavbar } from "./Navbar.styles";
+import { StyledNavbar } from "./Sidebar.styles";
 import { useCoreStore } from "../../store/store";
-import NavbarItem from "./item/NavbarItem";
+import NavbarItem from "./item/SidebarItem";
 import Switch from "../inputs/switch/Switch";
-import NavbarSubMenu from "./sub-menu/NavbarSubMenu";
-import NavbarSectionTitle from "./section-title/NavbarSectionTitle";
+import NavbarSubMenu from "./sub-menu/SidebarSubMenu";
+import NavbarSectionTitle from "./section-title/SidebarSectionTitle";
 import ToggleChevronLeft from "../togglers/chevron-left/ToggleChevronLeft";
 import React from "react";
 import useDataTheme from "../../hooks/use-data-theme";

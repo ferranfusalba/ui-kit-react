@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { StyledNavbarSubMenu } from "./NavbarSubMenu.styles";
-import NavbarItem from "../item/NavbarItem";
+import { StyledNavbarSubMenu } from "./SidebarSubMenu.styles";
+import NavbarItem from "../item/SidebarItem";
 import ToggleChevronDown from "../../togglers/chevron-down/ToggleChevronDown";
 import { useCoreStore } from "../../../store/store";
-import NavbarAsideActive from "../aside-active/NavbarAsideActive";
+import NavbarAsideActive from "../aside-active/SidebarAsideActive";
 import { useRouterState } from "@tanstack/react-router";
 
 const NavbarMenuItem = ({

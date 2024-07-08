@@ -1,4 +1,4 @@
-import { StyledNavbarSectionTitle } from "./NavbarSectionTitle.styles";
+import { StyledNavbarSectionTitle } from "./SidebarSectionTitle.styles";
 
 const NavbarSectionTitle = ({
   title,

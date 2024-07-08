@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { StyledNavbarItem } from "./NavbarItem.styles";
-import NavbarAsideActive from "../aside-active/NavbarAsideActive";
+import { StyledNavbarItem } from "./SidebarItem.styles";
+import NavbarAsideActive from "../aside-active/SidebarAsideActive";
 
 const NavbarItem = ({
   icon,
