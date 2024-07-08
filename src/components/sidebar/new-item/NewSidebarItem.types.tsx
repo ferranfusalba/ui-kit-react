@@ -3,7 +3,6 @@ export interface NewSidebarItemCoreProps {
   to: string;
   active: boolean;
   id?: string;
-  dataCy?: string;
   visible?: boolean | undefined;
 }
 

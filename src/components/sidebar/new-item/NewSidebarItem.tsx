@@ -14,7 +14,6 @@ const NewSidebarItem = ({
   active,
   isSubmenu = false,
   id,
-  dataCy,
   visible = undefined,
 }: NewSidebarItemProps) => {
   if (visible === false) {
@@ -22,11 +21,7 @@ const NewSidebarItem = ({
   }
 
   return (
-    <StyledNewSidebarItem
-      className={classNames({ active: active })}
-      id={id}
-      data-cy={dataCy}
-    >
+    <StyledNewSidebarItem className={classNames({ active: active })} id={id}>
       <div className="aside-indicator" />
       <Link to={to}>
         <StyledNewSidebarItemContent className="items-icon-title">
