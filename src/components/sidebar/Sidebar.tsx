@@ -115,13 +115,13 @@ const Sidebar = () => {
             items={[
               {
                 title: "Modal dialog 1",
-                to: "/modal/1",
-                active: isCurrentPath("/modal/1"),
+                to: "/modals/1",
+                active: isCurrentPath("/modals/1"),
               },
               {
                 title: "Modal dialog 2",
-                to: "/modal/2",
-                active: isCurrentPath("/modal/2"),
+                to: "/modals/2",
+                active: isCurrentPath("/modals/2"),
               },
             ]}
           />
@@ -230,17 +230,17 @@ const Sidebar = () => {
           <SidebarSubMenu
             icon="wysiwyg"
             title="Modals"
-            path="/modal"
+            path="/modals"
             items={[
               {
                 icon: "check_box",
                 title: "Modal dialog 1",
-                to: "/modal",
+                to: "/modals/1",
               },
               {
                 icon: "check_box",
                 title: "Modal dialog 2",
-                to: "/modal-2",
+                to: "/modals/2",
               },
             ]}
           ></SidebarSubMenu>

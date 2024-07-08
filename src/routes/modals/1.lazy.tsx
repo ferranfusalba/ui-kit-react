@@ -1,8 +1,8 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
-import Modal from "../components/modal/Modal";
+import Modal from "../../components/modals/1/Modal";
 import { useState } from "react";
 
-export const Route = createLazyFileRoute("/modal")({
+export const Route = createLazyFileRoute("/modals/1")({
   component: ModalPage,
 });
 

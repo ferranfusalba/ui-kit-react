@@ -24,25 +24,15 @@ import { Route as DropdownsPositionsImport } from './routes/dropdowns/positions'
 
 // Create Virtual Routes
 
-const Modal2LazyImport = createFileRoute('/modal-2')()
-const ModalLazyImport = createFileRoute('/modal')()
 const ButtonLazyImport = createFileRoute('/button')()
 const IndexLazyImport = createFileRoute('/')()
+const Modals2LazyImport = createFileRoute('/modals/2')()
+const Modals1LazyImport = createFileRoute('/modals/1')()
 const InputsSwitchLazyImport = createFileRoute('/inputs/switch')()
 const InputsRadioLazyImport = createFileRoute('/inputs/radio')()
 const InputsCheckboxLazyImport = createFileRoute('/inputs/checkbox')()
 
 // Create/Update Routes
-
-const Modal2LazyRoute = Modal2LazyImport.update({
-  path: '/modal-2',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/modal-2.lazy').then((d) => d.Route))
-
-const ModalLazyRoute = ModalLazyImport.update({
-  path: '/modal',
-  getParentRoute: () => rootRoute,
-} as any).lazy(() => import('./routes/modal.lazy').then((d) => d.Route))
 
 const ButtonLazyRoute = ButtonLazyImport.update({
   path: '/button',
@@ -63,6 +53,16 @@ const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+
+const Modals2LazyRoute = Modals2LazyImport.update({
+  path: '/modals/2',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/modals/2.lazy').then((d) => d.Route))
+
+const Modals1LazyRoute = Modals1LazyImport.update({
+  path: '/modals/1',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/modals/1.lazy').then((d) => d.Route))
 
 const InputsSwitchLazyRoute = InputsSwitchLazyImport.update({
   path: '/inputs/switch',
@@ -143,20 +143,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ButtonLazyImport
       parentRoute: typeof rootRoute
     }
-    '/modal': {
-      id: '/modal'
-      path: '/modal'
-      fullPath: '/modal'
-      preLoaderRoute: typeof ModalLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/modal-2': {
-      id: '/modal-2'
-      path: '/modal-2'
-      fullPath: '/modal-2'
-      preLoaderRoute: typeof Modal2LazyImport
-      parentRoute: typeof rootRoute
-    }
     '/dropdowns/positions': {
       id: '/dropdowns/positions'
       path: '/positions'
@@ -220,6 +206,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InputsSwitchLazyImport
       parentRoute: typeof rootRoute
     }
+    '/modals/1': {
+      id: '/modals/1'
+      path: '/modals/1'
+      fullPath: '/modals/1'
+      preLoaderRoute: typeof Modals1LazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/modals/2': {
+      id: '/modals/2'
+      path: '/modals/2'
+      fullPath: '/modals/2'
+      preLoaderRoute: typeof Modals2LazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -238,11 +238,11 @@ export const routeTree = rootRoute.addChildren({
     TooltipsReactRoute,
   }),
   ButtonLazyRoute,
-  ModalLazyRoute,
-  Modal2LazyRoute,
   InputsCheckboxLazyRoute,
   InputsRadioLazyRoute,
   InputsSwitchLazyRoute,
+  Modals1LazyRoute,
+  Modals2LazyRoute,
 })
 
 /* prettier-ignore-end */
@@ -257,11 +257,11 @@ export const routeTree = rootRoute.addChildren({
         "/dropdowns",
         "/tooltips",
         "/button",
-        "/modal",
-        "/modal-2",
         "/inputs/checkbox",
         "/inputs/radio",
-        "/inputs/switch"
+        "/inputs/switch",
+        "/modals/1",
+        "/modals/2"
       ]
     },
     "/": {
@@ -285,12 +285,6 @@ export const routeTree = rootRoute.addChildren({
     },
     "/button": {
       "filePath": "button.lazy.tsx"
-    },
-    "/modal": {
-      "filePath": "modal.lazy.tsx"
-    },
-    "/modal-2": {
-      "filePath": "modal-2.lazy.tsx"
     },
     "/dropdowns/positions": {
       "filePath": "dropdowns/positions.tsx",
@@ -324,6 +318,12 @@ export const routeTree = rootRoute.addChildren({
     },
     "/inputs/switch": {
       "filePath": "inputs/switch.lazy.tsx"
+    },
+    "/modals/1": {
+      "filePath": "modals/1.lazy.tsx"
+    },
+    "/modals/2": {
+      "filePath": "modals/2.lazy.tsx"
     }
   }
 }
