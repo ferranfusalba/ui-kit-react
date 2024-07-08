@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 [data-theme="dark"] {
   --body-background: #242424;
-  --body-color: rgba(255, 255, 255, 0.87)
+  --body-color: rgba(255, 255, 255, 0.87);
 }
 
 :root {
@@ -61,9 +61,10 @@ body {
   nav {
     transition: 0.3s ease-in-out;
 
-    &:not(.sidebar-expanded) {
+    // TODO: Review this
+    /* &:not(.sidebar-expanded) {
       width: 60px;
-    }
+    } */
     
     &.sidebar-expanded {
       width: 270px;
@@ -71,9 +72,10 @@ body {
   }
 
   main {
-    &:not(.sidebar-expanded) {
+    // TODO: Review this
+    /* &:not(.sidebar-expanded) {
       width: calc(100vw - 60px);
-    }
+    } */
     
     &.sidebar-expanded {
       width: calc(100vw - 270px);
