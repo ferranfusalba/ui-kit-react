@@ -19,6 +19,14 @@ const GlobalStyle = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  // Colors
+  --color-corporative-blue-opticks: #00447f;
+  --color-corporative-green-logo: #21cdb0;
+  --color-corporative-opticks-blue-grey: #5f8bb1;
+  --color-blueish-dark-blue: #002e57;
+  --color-blueish-tufts-blue: #1191e1;
+  --color-bw-white: #ffffff;
 }
 
 /* * {
