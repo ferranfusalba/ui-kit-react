@@ -1,28 +1,22 @@
-import {
-  StyledNewSidebar,
-  StyledSidebar,
-  StyledSidebarItemSection,
-  StyledSidebars,
-} from "./Sidebar.styles";
+import { StyledSidebar, StyledSidebarItemSection } from "./Sidebar.styles";
 import { useCoreStore } from "../../store/store";
-import SidebarItem from "./item/SidebarItem";
 import Switch from "../inputs/switch/Switch";
-import SidebarSubMenu from "./sub-menu/SidebarSubMenu";
-// import ToggleChevronLeft from "../togglers/chevron-left/ToggleChevronLeft";
 import React from "react";
 import useDataTheme from "../../hooks/use-data-theme";
 import classNames from "classnames";
 import SidebarSectionTitleToggler from "./section-title/section-title-toggler/SidebarSectionTitleToggler";
 import SidebarSectionTitleSeparator from "./section-title/section-title-separator/SidebarSectionTitleSeparator";
-import NewSidebarItem from "./new-item/NewSidebarItem";
-import NewSidebarSubmenu from "./new-submenu/NewSidebarSubmenu";
-import CaretDownIcon from "../../assets/icons-code/CaretDownIcon";
+import SidebarItem from "./item/SidebarItem";
+import SidebarSubmenu from "./submenu/SidebarSubmenu";
+import Home from "../../assets/icons/home.svg";
+import Dropdown from "../../assets/icons/dropdown.svg";
+import Input from "../../assets/icons/input.svg";
+import Wysiwyg from "../../assets/icons/wysiwyg.svg";
+import Tooltip from "../../assets/icons/tooltip.svg";
 
 const Sidebar = () => {
   const isSidebarExpanded = useCoreStore((state) => state.isSidebarExpanded);
   const setSidebarExpanded = useCoreStore((state) => state.setSidebarExpanded);
-  const sidebarClassName = isSidebarExpanded ? "sidebar-expanded" : "";
-  const theme = useCoreStore((state) => state.theme);
 
   const { setDarkMode, setLightMode, selectedThemeLS } = useDataTheme();
 
@@ -40,256 +34,134 @@ const Sidebar = () => {
   const isHome = window.location.pathname === "/";
 
   return (
-    <StyledSidebars>
-      <StyledNewSidebar
-        className={classNames({ collapsed: !isSidebarExpanded })}
-      >
-        <SidebarSectionTitleToggler
-          title="UI Kit React"
-          onClick={() => setSidebarExpanded(!isSidebarExpanded)}
+    <StyledSidebar className={classNames({ collapsed: !isSidebarExpanded })}>
+      <SidebarSectionTitleToggler
+        title="UI Kit React"
+        onClick={() => setSidebarExpanded(!isSidebarExpanded)}
+        collapsed={!isSidebarExpanded}
+        visible={true}
+      />
+      <StyledSidebarItemSection>
+        <SidebarItem title="Home" icon={Home} to="/" active={isHome} visible />
+
+        <SidebarSubmenu
+          title="Dropdowns"
+          icon={Dropdown}
+          active={isCurrentPath("/dropdowns")}
           collapsed={!isSidebarExpanded}
-          visible={true}
-        />
-        <StyledSidebarItemSection>
-          <NewSidebarItem
-            title="Home"
-            // icon={}
-            to="/"
-            active={isHome}
-            visible
-          />
-
-          <NewSidebarSubmenu
-            title="Dropdowns"
-            icon={<CaretDownIcon />}
-            active={isCurrentPath("/dropdowns")}
-            collapsed={!isSidebarExpanded}
-            items={[
-              {
-                title: "Dropdown (positions)",
-                to: "/dropdowns/positions",
-                active: isCurrentPath("/dropdowns/positions"),
-              },
-              {
-                title: "Dropdown Single Option",
-                to: "/dropdowns/single-option",
-                active: isCurrentPath("/dropdowns/single-option"),
-              },
-              {
-                title: "Dropdown Select Option",
-                to: "/dropdowns/select-option",
-                active: isCurrentPath("/dropdowns/select-option"),
-              },
-            ]}
-          />
-
-          <NewSidebarSubmenu
-            title="Inputs"
-            icon={<CaretDownIcon />}
-            active={isCurrentPath("/inputs")}
-            collapsed={!isSidebarExpanded}
-            items={[
-              {
-                title: "Checkbox",
-                to: "/inputs/checkbox",
-                active: isCurrentPath("/inputs/checkbox"),
-              },
-              {
-                title: "Radio",
-                to: "/inputs/radio",
-                active: isCurrentPath("/inputs/radio"),
-              },
-              {
-                title: "Switch",
-                to: "/inputs/switch",
-                active: isCurrentPath("/inputs/switch"),
-              },
-            ]}
-          />
-
-          <NewSidebarSubmenu
-            title="Modals"
-            icon={<CaretDownIcon />}
-            active={isCurrentPath("/modals")}
-            collapsed={!isSidebarExpanded}
-            items={[
-              {
-                title: "Modal dialog 1",
-                to: "/modals/1",
-                active: isCurrentPath("/modals/1"),
-              },
-              {
-                title: "Modal dialog 2",
-                to: "/modals/2",
-                active: isCurrentPath("/modals/2"),
-              },
-            ]}
-          />
-
-          <NewSidebarSubmenu
-            title="Tooltip"
-            icon={<CaretDownIcon />}
-            active={isCurrentPath("/tooltips")}
-            collapsed={!isSidebarExpanded}
-            items={[
-              {
-                title: "React Tooltip",
-                to: "/tooltips/react",
-                active: isCurrentPath("/tooltips/react"),
-              },
-              {
-                title: "CSS Tooltip",
-                to: "/tooltips/css",
-                active: isCurrentPath("/tooltips/css"),
-              },
-              {
-                title: "Popover Tooltip",
-                to: "/tooltips/popover",
-                active: isCurrentPath("/tooltips/popover"),
-              },
-            ]}
-          />
-
-          <SidebarSectionTitleSeparator
-            title="Material Web"
-            collapsed={!isSidebarExpanded}
-          />
-        </StyledSidebarItemSection>
-
-        <NewSidebarItem
-          title="Button"
-          // icon={}
-          to="/button"
-          active={isCurrentPath("/button")}
-          visible
+          items={[
+            {
+              title: "Dropdown (positions)",
+              to: "/dropdowns/positions",
+              active: isCurrentPath("/dropdowns/positions"),
+            },
+            {
+              title: "Dropdown Single Option",
+              to: "/dropdowns/single-option",
+              active: isCurrentPath("/dropdowns/single-option"),
+            },
+            {
+              title: "Dropdown Select Option",
+              to: "/dropdowns/select-option",
+              active: isCurrentPath("/dropdowns/select-option"),
+            },
+          ]}
         />
 
-        {isSidebarExpanded && (
-          <div>
-            <p>{import.meta.env.MODE}</p>
-            <Switch
-              id="mode-toggle"
-              htmlFor="mode-toggle"
-              label="Dark Mode"
-              handleChange={toggleTheme}
-              defaultChecked={selectedThemeLS === "dark"}
-            ></Switch>
-          </div>
-        )}
-      </StyledNewSidebar>
+        <SidebarSubmenu
+          title="Inputs"
+          icon={Input}
+          active={isCurrentPath("/inputs")}
+          collapsed={!isSidebarExpanded}
+          items={[
+            {
+              title: "Checkbox",
+              to: "/inputs/checkbox",
+              active: isCurrentPath("/inputs/checkbox"),
+            },
+            {
+              title: "Radio",
+              to: "/inputs/radio",
+              active: isCurrentPath("/inputs/radio"),
+            },
+            {
+              title: "Switch",
+              to: "/inputs/switch",
+              active: isCurrentPath("/inputs/switch"),
+            },
+          ]}
+        />
 
-      <hr style={{ width: "100%" }} />
+        <SidebarSubmenu
+          title="Modals"
+          icon={Wysiwyg}
+          active={isCurrentPath("/modals")}
+          collapsed={!isSidebarExpanded}
+          items={[
+            {
+              title: "Modal dialog 1",
+              to: "/modals/1",
+              active: isCurrentPath("/modals/1"),
+            },
+            {
+              title: "Modal dialog 2",
+              to: "/modals/2",
+              active: isCurrentPath("/modals/2"),
+            },
+          ]}
+        />
 
-      <StyledSidebar className={classNames(sidebarClassName, theme)}>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <SidebarItem icon="home" title="Home" to="/" />
-          <SidebarSubMenu
-            icon="dropdown"
-            title="Dropdowns"
-            path="/dropdowns"
-            items={[
-              {
-                icon: "dropdown",
-                title: "Dropdown (positions)",
-                to: "/dropdowns/positions",
-              },
-              {
-                icon: "dropdown",
-                title: "Dropdown Single Option",
-                to: "/dropdowns/single-option",
-              },
-              {
-                icon: "dropdown",
-                title: "Dropdown Select Option",
-                to: "/dropdowns/select-option",
-              },
-            ]}
-          ></SidebarSubMenu>
-          <SidebarSubMenu
-            icon="input"
-            title="Inputs"
-            path="/inputs"
-            items={[
-              {
-                icon: "check_box",
-                title: "Checkbox",
-                to: "/inputs/checkbox",
-              },
-              {
-                icon: "radio_button_checked",
-                title: "Radio",
-                to: "/inputs/radio",
-              },
-              {
-                icon: "switches",
-                title: "Switch",
-                to: "/inputs/switch",
-              },
-            ]}
-          ></SidebarSubMenu>
-          <SidebarSubMenu
-            icon="wysiwyg"
-            title="Modals"
-            path="/modals"
-            items={[
-              {
-                icon: "check_box",
-                title: "Modal dialog 1",
-                to: "/modals/1",
-              },
-              {
-                icon: "check_box",
-                title: "Modal dialog 2",
-                to: "/modals/2",
-              },
-            ]}
-          ></SidebarSubMenu>
-          <SidebarSubMenu
-            icon="tooltip"
-            title="Tooltips"
-            path="/tooltips"
-            items={[
-              {
-                icon: "tooltip",
-                title: "React Tooltip",
-                to: "/tooltips/react",
-              },
-              {
-                icon: "tooltip",
-                title: "CSS Tooltip",
-                to: "/tooltips/css",
-              },
-              {
-                icon: "tooltip",
-                title: "Popover Tooltip",
-                to: "/tooltips/popover",
-              },
-            ]}
-          ></SidebarSubMenu>
-        </div>
+        <SidebarSubmenu
+          title="Tooltip"
+          icon={Tooltip}
+          active={isCurrentPath("/tooltips")}
+          collapsed={!isSidebarExpanded}
+          items={[
+            {
+              title: "React Tooltip",
+              to: "/tooltips/react",
+              active: isCurrentPath("/tooltips/react"),
+            },
+            {
+              title: "CSS Tooltip",
+              to: "/tooltips/css",
+              active: isCurrentPath("/tooltips/css"),
+            },
+            {
+              title: "Popover Tooltip",
+              to: "/tooltips/popover",
+              active: isCurrentPath("/tooltips/popover"),
+            },
+          ]}
+        />
 
         <SidebarSectionTitleSeparator
           title="Material Web"
           collapsed={!isSidebarExpanded}
         />
+      </StyledSidebarItemSection>
 
+      <SidebarItem
+        title="Button"
+        // icon={}
+        to="/button"
+        active={isCurrentPath("/button")}
+        visible
+      />
+
+      {isSidebarExpanded && (
         <div>
-          <SidebarItem icon="buttons_alt" title="Button" to="/button" />
+          <p>{import.meta.env.MODE}</p>
+          <Switch
+            id="mode-toggle"
+            htmlFor="mode-toggle"
+            label="Dark Mode"
+            handleChange={toggleTheme}
+            defaultChecked={selectedThemeLS === "dark"}
+          ></Switch>
         </div>
-        {isSidebarExpanded && (
-          <div>
-            <p>{import.meta.env.MODE}</p>
-            <Switch
-              id="mode-toggle"
-              htmlFor="mode-toggle"
-              label="Dark Mode"
-              handleChange={toggleTheme}
-              defaultChecked={selectedThemeLS === "dark"}
-            ></Switch>
-          </div>
-        )}
-      </StyledSidebar>
-    </StyledSidebars>
+      )}
+    </StyledSidebar>
   );
 };
 export default Sidebar;

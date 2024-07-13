@@ -2,11 +2,11 @@ import React from "react";
 import classNames from "classnames";
 import CaretDownIcon from "../../../../assets/icons-code/CaretDownIcon";
 import {
-  StyledNewSidebarSubmenuToggler,
-  StyledNewSidebarSubmenuTogglerContent,
-} from "./NewSidebarSubmenuToggler.styles";
+  StyledSidebarSubmenuToggler,
+  StyledSidebarSubmenuTogglerContent,
+} from "./SidebarSubmenuToggler.styles";
 
-const NewSidebarSubmenuToggler = ({
+const SidebarSubmenuToggler = ({
   title,
   active,
   icon,
@@ -17,31 +17,31 @@ const NewSidebarSubmenuToggler = ({
 }: {
   title: string;
   active: boolean;
-  icon: React.ReactNode;
+  icon: string;
   onClick: (event: React.BaseSyntheticEvent) => void;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
   open: boolean;
 }) => {
   return (
-    <StyledNewSidebarSubmenuToggler
+    <StyledSidebarSubmenuToggler
       className={classNames({ open: open }, { active: active })}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
       <div className="aside-indicator" />
-      <StyledNewSidebarSubmenuTogglerContent className="items-icon-title-caret">
+      <StyledSidebarSubmenuTogglerContent className="items-icon-title-caret">
         <div className="items-icon-title">
-          <div className="item-icon">{icon}</div>
+          <img src={icon} className="item-icon"></img>
           <span className="item-title">{title}</span>
         </div>
         <div className={classNames("item-caret", { open })}>
           <CaretDownIcon />
         </div>
-      </StyledNewSidebarSubmenuTogglerContent>
-    </StyledNewSidebarSubmenuToggler>
+      </StyledSidebarSubmenuTogglerContent>
+    </StyledSidebarSubmenuToggler>
   );
 };
 
-export default NewSidebarSubmenuToggler;
+export default SidebarSubmenuToggler;

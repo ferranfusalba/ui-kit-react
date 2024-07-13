@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-export const StyledNewSidebarSubmenu = styled.div`
+export const StyledSidebarSubmenu = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
 `;
 
-export const StyledNewSidebarSubmenuSection = styled.div<{
+export const StyledSidebarSubmenuSection = styled.div<{
   $maxHeight: string;
 }>`
   display: flex;
@@ -22,7 +22,7 @@ export const StyledNewSidebarSubmenuSection = styled.div<{
   }
 `;
 
-export const StyledNewSidebarSubmenuSectionOpenCollapsed = styled.div<{
+export const StyledSidebarSubmenuSectionOpenCollapsed = styled.div<{
   $maxHeight: string;
 }>`
   display: flex;
@@ -35,7 +35,7 @@ export const StyledNewSidebarSubmenuSectionOpenCollapsed = styled.div<{
   }
 `;
 
-export const StyledNewSidebarSubmenuSectionCollapsed = styled.div<{
+export const StyledSidebarSubmenuSectionCollapsed = styled.div<{
   onMouseEnter: (value: React.SetStateAction<boolean>) => void;
   onMouseLeave: (value: React.SetStateAction<boolean>) => void;
 }>`

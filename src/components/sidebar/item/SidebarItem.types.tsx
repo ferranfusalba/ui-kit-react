@@ -1,4 +1,4 @@
-export interface NewSidebarItemCoreProps {
+export interface SidebarItemCoreProps {
   title: string | React.ReactNode;
   to: string;
   active: boolean;
@@ -6,7 +6,7 @@ export interface NewSidebarItemCoreProps {
   visible?: boolean | undefined;
 }
 
-export interface NewSidebarItemProps extends NewSidebarItemCoreProps {
-  icon?: React.ReactNode;
+export interface SidebarItemProps extends SidebarItemCoreProps {
+  icon?: string;
   isSubmenu?: boolean;
 }

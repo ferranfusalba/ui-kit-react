@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { useState, useEffect, useRef } from "react";
-import NewSidebarItem from "../new-item/NewSidebarItem";
-import { NewSidebarItemCoreProps } from "../new-item/NewSidebarItem.types";
-import NewSidebarSubmenuToggler from "./submenu-toggler/NewSidebarSubmenuToggler";
+import SidebarItem from "../item/SidebarItem";
+import { SidebarItemCoreProps } from "../item/SidebarItem.types";
+import SidebarSubmenuToggler from "./submenu-toggler/SidebarSubmenuToggler";
 import {
-  StyledNewSidebarSubmenu,
-  StyledNewSidebarSubmenuSection,
-  StyledNewSidebarSubmenuSectionCollapsed,
-  StyledNewSidebarSubmenuSectionOpenCollapsed,
-} from "./NewSidebarSubmenu.styles";
+  StyledSidebarSubmenu,
+  StyledSidebarSubmenuSection,
+  StyledSidebarSubmenuSectionCollapsed,
+  StyledSidebarSubmenuSectionOpenCollapsed,
+} from "./SidebarSubmenu.styles";
 
-const NewSidebarSubmenu = ({
+const SidebarSubmenu = ({
   title,
   active,
   icon,
@@ -19,9 +19,9 @@ const NewSidebarSubmenu = ({
 }: {
   title: string;
   active: boolean;
-  icon: React.ReactNode;
+  icon: string;
   collapsed: boolean;
-  items: Array<NewSidebarItemCoreProps>;
+  items: Array<SidebarItemCoreProps>;
 }) => {
   const [open, setOpen] = useState(false);
   const [openCollapsed, setOpenCollapsed] = useState(false);
@@ -56,9 +56,9 @@ const NewSidebarSubmenu = ({
   }, [collapsed]);
 
   return (
-    <StyledNewSidebarSubmenu>
+    <StyledSidebarSubmenu>
       {/* Toggler Button */}
-      <NewSidebarSubmenuToggler
+      <SidebarSubmenuToggler
         title={title}
         active={active}
         icon={icon}
@@ -66,11 +66,11 @@ const NewSidebarSubmenu = ({
         onMouseEnter={collapsed ? () => setOpenCollapsed(true) : () => {}}
         onMouseLeave={collapsed ? () => setOpenCollapsed(false) : () => {}}
         open={open}
-      ></NewSidebarSubmenuToggler>
+      ></SidebarSubmenuToggler>
 
       {/* Submenu Section when sidebar is collapsed (dropright) */}
       {isSubmenuOpen || openCollapsed ? (
-        <StyledNewSidebarSubmenuSectionCollapsed
+        <StyledSidebarSubmenuSectionCollapsed
           onMouseEnter={() => {
             setIsSubmenuOpen(true);
           }}
@@ -80,11 +80,9 @@ const NewSidebarSubmenu = ({
         >
           {isSubmenuOpen || openCollapsed ? (
             <div className="submenu-collapsed-open">
-              <StyledNewSidebarSubmenuSectionOpenCollapsed
-                $maxHeight={menuHeight}
-              >
+              <StyledSidebarSubmenuSectionOpenCollapsed $maxHeight={menuHeight}>
                 {items.map((item) => (
-                  <NewSidebarItem
+                  <SidebarItem
                     key={item.to}
                     title={item.title}
                     active={item.active}
@@ -93,14 +91,14 @@ const NewSidebarSubmenu = ({
                     isSubmenu
                   />
                 ))}
-              </StyledNewSidebarSubmenuSectionOpenCollapsed>
+              </StyledSidebarSubmenuSectionOpenCollapsed>
             </div>
           ) : null}
-        </StyledNewSidebarSubmenuSectionCollapsed>
+        </StyledSidebarSubmenuSectionCollapsed>
       ) : null}
 
       {/* Submenu Section when sidebar is expanded (dropdown) */}
-      <StyledNewSidebarSubmenuSection
+      <StyledSidebarSubmenuSection
         ref={menuRef}
         className={open ? "submenu-open" : ""}
         $maxHeight={menuHeight}
@@ -108,7 +106,7 @@ const NewSidebarSubmenu = ({
         <div style={{ height: "4px" }} />
 
         {items.map((item) => (
-          <NewSidebarItem
+          <SidebarItem
             key={item.to}
             title={item.title}
             active={item.active}
@@ -117,9 +115,9 @@ const NewSidebarSubmenu = ({
             id={item.id}
           />
         ))}
-      </StyledNewSidebarSubmenuSection>
-    </StyledNewSidebarSubmenu>
+      </StyledSidebarSubmenuSection>
+    </StyledSidebarSubmenu>
   );
 };
 
-export default NewSidebarSubmenu;
+export default SidebarSubmenu;

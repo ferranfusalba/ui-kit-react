@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import {
-  StyledNewSidebarItemContent,
-  StyledNewSidebarItemCore,
-} from "../../new-item/NewSidebarItem.styles";
+  StyledSidebarItemContent,
+  StyledSidebarItemCore,
+} from "../../item/SidebarItem.styles";
 
-export const StyledNewSidebarSubmenuToggler = styled(StyledNewSidebarItemCore)`
+export const StyledSidebarSubmenuToggler = styled(StyledSidebarItemCore)`
   &.active:not(.open) {
     div.aside-indicator {
       border-top-left-radius: 8px;
@@ -32,8 +32,8 @@ export const StyledNewSidebarSubmenuToggler = styled(StyledNewSidebarItemCore)`
   }
 `;
 
-export const StyledNewSidebarSubmenuTogglerContent = styled(
-  StyledNewSidebarItemContent
+export const StyledSidebarSubmenuTogglerContent = styled(
+  StyledSidebarItemContent
 )`
   justify-content: space-between;
 

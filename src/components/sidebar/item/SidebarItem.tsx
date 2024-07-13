@@ -1,32 +1,45 @@
-import { Link, useRouterState } from "@tanstack/react-router";
-import { StyledSidebarItem } from "./SidebarItem.styles";
-import SidebarAsideActive from "../aside-active/SidebarAsideActive";
+import { Link } from "@tanstack/react-router";
+import classNames from "classnames";
+import {
+  StyledSidebarItem,
+  StyledSidebarItemContent,
+} from "./SidebarItem.styles";
+import { SidebarItemProps } from "./SidebarItem.types";
 
 const SidebarItem = ({
-  icon,
   title,
+  icon,
   to,
-  withAside = true,
-}: {
-  icon: string;
-  title: string;
-  to?: string;
-  withAside?: boolean;
-}) => {
-  const router = useRouterState();
-  const active = to === router.location.pathname;
+  active,
+  isSubmenu = false,
+  id,
+  visible = undefined,
+}: SidebarItemProps) => {
+  if (visible === false) {
+    return null;
+  }
 
   return (
-    <StyledSidebarItem>
-      {withAside ? (
-        <SidebarAsideActive
-          className={active ? "active" : ""}
-        ></SidebarAsideActive>
-      ) : null}
-
-      <picture className="material-symbols-outlined">{icon}</picture>
+    <StyledSidebarItem className={classNames({ active: active })} id={id}>
+      <div className="aside-indicator" />
       <Link to={to}>
-        <span className="section-title">{title}</span>
+        <StyledSidebarItemContent className="items-icon-title">
+          <div
+            className={classNames("item-icon", {
+              "sensor-variation":
+                title === "Sensor JS" || title === "Sensor S2S",
+            })}
+          >
+            <img src={icon} alt="" />
+          </div>
+          <span
+            className={classNames("item-title", {
+              "is-submenu-child": isSubmenu,
+            })}
+          >
+            {title}
+          </span>
+        </StyledSidebarItemContent>
       </Link>
     </StyledSidebarItem>
   );
