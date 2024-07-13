@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const StyledSidebar = styled.nav`
   transition: max-width, left, right, 0.3s;
-  width: 240px;
-  max-width: 240px;
   height: 100%;
   padding: 10px 6px;
   background: var(--color-bw-clear-blue-grey);
 
+  &:not(.collapsed) {
+    width: calc(270px - 12px);
+  }
   &.collapsed {
-    max-width: 68px;
+    width: 68px;
 
     span.section-title {
       opacity: 0;

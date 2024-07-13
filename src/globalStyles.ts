@@ -29,14 +29,11 @@ const GlobalStyle = createGlobalStyle`
   --color-bw-white: #ffffff;
 }
 
-/* * {
-  transition: all 0.3s ease-in-out;
-} */
-
 body {
   margin: 0;
   display: flex;
-
+  height: 100vh;
+  width: 100vw;
   background-color: var(--body-background);
   color: var(--body-color);
 
@@ -60,23 +57,12 @@ body {
 
   nav {
     transition: 0.3s ease-in-out;
-
-    // TODO: Review this
-    /* &:not(.sidebar-expanded) {
-      width: 60px;
-    } */
-    
-    &.sidebar-expanded {
-      width: 270px;
-    }
   }
 
-  main {
-    // TODO: Review this
-    /* &:not(.sidebar-expanded) {
-      width: calc(100vw - 60px);
-    } */
-    
+  main {    
+    &:not(.sidebar-expanded) {
+      width: calc(100vw - 80px); // 68 + 6 + 6
+    }
     &.sidebar-expanded {
       width: calc(100vw - 270px);
     }
